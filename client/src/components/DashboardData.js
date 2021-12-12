@@ -6,7 +6,10 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 
+
 export const DashboardData = [
+  
+  
     {
         title: "Strona główna",
         icon: <HomeIcon />,
