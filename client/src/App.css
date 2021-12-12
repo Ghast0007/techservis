@@ -19,6 +19,12 @@ body {
   margin-top: auto;
 }
 
+.slider
+{
+  width: 85%;
+  float: right;
+}
+
 
 
 .Dashboard {
