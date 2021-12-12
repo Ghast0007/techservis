@@ -7,16 +7,10 @@ import Axios from "axios";
 
 function Login() {
 
-    
-  
-
   const [login, setloginLOG] = useState("");
   const [haslo, sethasloLOG] = useState("");
 
   const [loginStatus, setloginStatus] = useState("");
-
-
-  
 
   const zaloguj = () => {
 
@@ -35,12 +29,10 @@ function Login() {
   return (
     <div className="App">
      
-    
-
-    <h1> Zaloguj się </h1>
+   
 
     <div className="form">
-      
+    <h1> Zaloguj się </h1>
       <input type="text" name="login" placeholder="E-mail ..." onChange={(e)=> {
         setloginLOG(e.target.value);
       }}/>
@@ -51,16 +43,16 @@ function Login() {
 
       <button onClick={zaloguj}>Zaloguj</button>
 
-
+      <a href="/">Strona główna</a>
+    <p/>
+    <a href="/register">Zarejestruj się</a>
     </div>
+
+   
 
     <h1>{ loginStatus }</h1>
 
 
-
-    <a href="/">Strona główna</a>
-    <p/>
-    <a href="/register">Zarejestruj się</a>
 
     </div>
   );

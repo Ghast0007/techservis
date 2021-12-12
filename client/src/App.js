@@ -1,28 +1,33 @@
 import React from "react";
-import Login from "./pages/Login.js";
-import Register from "./pages/Register.js";
-import Main from "./pages/Main.js";
-
-
-import { Route, Routes} from "react-router-dom";
+import './App.css';
+import Logowanie from "./pages/Logowanie.js";
+import Rejestracja from "./pages/Rejestracja.js";
+import StronaGlowna from "./pages/StronaGlowna.js";
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./components/Dashboard.js";
+import OFirmie from "./pages/OFirmie";
 
 
 function App() {
   return ( 
-    <div>
-      <main>
-    <Routes>
-      
-          <Route path="/" element={<Main />}/> 
-          <Route path="/login" element={<Login />}/> 
-          <Route path="/register" element={<Register />}/> 
+  <div className ="App">
 
+   <Dashboard/>
+
+   
+    <Routes>   
+      
+          <Route path="/" element={<StronaGlowna />}/> 
+          <Route path="/login" element={<Logowanie />}/> 
+          <Route path="/register" element={<Rejestracja/>}/> 
+          <Route path="/ofirmie" element={<OFirmie />}/> 
+          <Route path="/cennik" element={<Dashboard />}/>
+     
     </Routes>
-    </main>
-    
-    </div>
-  );
   
+    </div>
+   
+  );
 }
 
 export default App ;
