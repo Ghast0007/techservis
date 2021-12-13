@@ -5,6 +5,7 @@ import Rejestracja from "./pages/Rejestracja.js";
 import StronaGlowna from "./pages/StronaGlowna.js";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
+import DashboardTop from "./components/DashboardTop.js";
 import OFirmie from "./pages/OFirmie";
 
 
@@ -13,6 +14,7 @@ function App() {
   <div className ="App">
 
    <Dashboard/>
+   <DashboardTop/>
 
    
     <Routes>   

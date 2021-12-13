@@ -22,29 +22,88 @@ body {
 .slider
 {
   width: 85%;
+  height: 300px;
   float: right;
 }
 
+.DashboardTop
+{
+  background-color: rgb(21, 22, 51);
+  width: 85%;
+  height: 50px;
+  display: flex;
+  float: right;
+}
+
+.DashboardTop .leftside
+{
+  flex: 25%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 10px;
+  margin-left: 15px;
+  color: white;
+  font-size:16px ;
+}
+
+.DashboardTop .leftside2
+{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 10px;
+  margin-left: 15px;
+  color: white;
+  font-size:16px ;
+  flex: 25%;
+}
+
+.DashboardTop .rightside
+{
+  flex: 25%;
+ 
+}
+
+.DashboardTop .rightside2
+{
+  flex: 25%;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  padding-right: 25px;
+}
+
+.rightside2 input
+{
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  color: black;
+}
+
+.leftside2 button
+{
+  border: none;
+  border-radius: 5px;
+}
 
 
 .Dashboard {
   float: left;
-  height: 100vh;
+  height: 100%;
   width: 15%;
-  background-color:rgb(33, 40, 77);
+  background-color:rgb(21, 22, 51);
 }
 
 .Dashboard img
 {
   width: 75%;
-  height: auto;
-  margin-left: 30px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  height: 75%;
+  margin-left: 15%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .DashboardList{
-  height: 100%;
+  height: 100vh;
   padding: 0;
   width: 100%;
 }
@@ -101,9 +160,4 @@ body {
   height: 60px;
   margin: 10px;
   font-size: 25px;
-}
-button
-{
-  width: 300px;
-  
 }
