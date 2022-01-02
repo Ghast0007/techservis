@@ -1,5 +1,5 @@
 import '../App.css';
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 
@@ -8,6 +8,14 @@ function Register() {
   
   const [loginREG, setloginREG] = useState("");
   const [hasloREG, sethasloREG] = useState("");
+
+  const [login, setloginLOG] = useState("");
+  const [haslo, sethasloLOG] = useState("");
+
+  const [loginStatus, setloginStatus] = useState("");
+
+
+  Axios.defaults.withCredentials = true;
 
   const zarejestruj = () => {
 
@@ -19,7 +27,28 @@ function Register() {
     });
   };
 
+  const zaloguj = () => {
 
+    Axios.post("http://localhost:3001/api/login", {
+      login: login,
+      haslo: haslo,
+    }).then((response)=> {
+      if (response.data.message) {
+        setloginStatus(response.data.message);
+      }else
+      {
+        setloginStatus(response.data[0].login);
+      }
+    });
+  };
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setloginStatus(response.data.user[0].login);
+      }
+    });
+  }, []);
   
   return (
     <div className="RegisterPage">
@@ -47,10 +76,44 @@ function Register() {
       
       <button onClick={zarejestruj}>Zarejestruj</button>
 
-      <a href="/login">Zaloguj się</a>
+     
 </div>
 
+<div className="Logowanie">
+     
    
+
+     <div className="form">
+     <h1> Zaloguj się </h1>
+       <input 
+       type="text" 
+       name="login" 
+       placeholder="E-mail ..." 
+       onChange={(e)=> {
+         setloginLOG(e.target.value);
+       }}/>
+       
+       <input 
+       type="password" 
+       name="haslo" 
+       placeholder="Hasło ..." 
+       onChange={(e)=> {
+         sethasloLOG(e.target.value);
+       }}/>
+ 
+       <button onClick={zaloguj}>Zaloguj</button>
+ 
+      
+     
+     </div>
+ 
+    
+ 
+     <h1>{ loginStatus }</h1>
+ 
+ 
+ 
+     </div>
 
     </div>
   );

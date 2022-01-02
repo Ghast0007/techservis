@@ -6,7 +6,9 @@ import StronaGlowna from "./pages/StronaGlowna.js";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import DashboardTop from "./components/DashboardTop.js";
-import OFirmie from "./pages/OFirmie";
+import OFirmie from "./pages/OFirmie.js";
+import Footer from "./components/footer";
+import Cennik from "./pages/Cennik";
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
 
    <Dashboard/>
    <DashboardTop/>
+   
 
    
     <Routes>   
@@ -23,10 +26,10 @@ function App() {
           <Route path="/login" element={<Logowanie />}/> 
           <Route path="/register" element={<Rejestracja/>}/> 
           <Route path="/ofirmie" element={<OFirmie />}/> 
-          <Route path="/cennik" element={<Dashboard />}/>
+          <Route path="/cennik" element={<Cennik />}/>
      
     </Routes>
-  
+    <Footer/>
     </div>
    
   );

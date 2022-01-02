@@ -27,7 +27,7 @@ function Login() {
     });
   };
   return (
-    <div className="App">
+    <div className="Logowanie">
      
    
 

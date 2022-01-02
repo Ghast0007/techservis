@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import RingVolumeIcon from '@mui/icons-material/RingVolume';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import SearchIcon from '@mui/icons-material/Search';
+
 
 function DashboardTop() {
     return (
@@ -30,8 +30,7 @@ function DashboardTop() {
        </div>
 
        <div className="rightside2">
-           <input type="text " placeholder="Wyszukaj..."/>
-           <button><SearchIcon/></button>
+         
 
        </div>
        
