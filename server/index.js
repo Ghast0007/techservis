@@ -12,7 +12,7 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password:"",
-    database:"techservisDATABASE",
+    database:"techservisdatabase",
 });
 
 app.use(
@@ -51,7 +51,7 @@ app.post("/api/insert", (req, res) => {
       }
   
       db.query(
-        "INSERT INTO logowanie (login, haslo) VALUES (?,?)",
+        "INSERT INTO logowanie (login, haslo, rola) VALUES (?,?,'user')",
         [login, hash],
         (err, result) => {
           console.log(err);

@@ -4,7 +4,7 @@ import "../App.css";
 function Uslugi() {
     return (
     <div className="uslugi">
-   
+   zaloguj sie
     
     </div>
 );

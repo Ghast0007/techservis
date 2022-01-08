@@ -87,7 +87,7 @@ function Cennik() {
           </tr>
           <tr>
             <td>12</td>
-            <td>Porada online (np. Discord)</td>
+            <td>Porada online (chat)</td>
             <td>-</td>
             <td>0zł</td>
           </tr>

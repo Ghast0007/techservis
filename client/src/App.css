@@ -24,6 +24,7 @@ body {
   margin-left: 30px;
   margin-top: 30px;
   color: brown;
+  
 }
 
 .informacja #info
@@ -98,7 +99,7 @@ body {
 .DashboardTop .rightside2
 {
   flex: 25%;
-  
+  color: white;
 }
 
 
@@ -196,36 +197,18 @@ body {
 .row #title {
   flex: 70%;
 }
-.Logowanie
-{
-  width: 85%;
-  height: 100vh;
-  float: right;
-}
-.form
-{
-  margin-right: 50%;
-  width: 85%;
-  height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-.form input
-{
-  width: 300px;
-  height: 60px;
-  margin: 10px;
-  font-size: 25px;
-}
+
+
 
 .ofirmie
 {
   height: 100%;
   width: 85%;
   float: right;
+  
+  
+  
 }
 
 .ofirmie .naglowek
@@ -263,6 +246,7 @@ body {
   width: 45%;
   float: right;
   margin-right: 50px;
+  
 }
 
 
@@ -309,7 +293,8 @@ body {
   height: 100vh;
   float: right;
   text-align: center;
-  
+  background-image:  url("./images/tło.jpg");
+  background-size: 1650px;
   
 }
 .cennik .nad_tabela
@@ -338,4 +323,113 @@ body {
 {
   color: rgb(46, 46, 46);
   line-height: 85px;
+}
+.RegisterPage
+{
+  width: 85%;
+  height: 100vh;
+  float: right;
+  background-image:  url("./images/tło.jpg");
+  background-size: 1650px;
+}
+
+
+
+
+
+.tabs {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4e4c7a;
+  position: relative;
+  cursor: pointer;
+}
+.form
+{
+  margin-right: 35%;
+  margin-top: 100px;
+  width: 450px;
+  height: 600px;
+  float: right;
+  background-color: rgba(29, 26, 63, 0.966);
+  box-shadow: 30px 70px 25px rgba(128, 128, 128, 0.658);
+  
+  
+}
+.form button
+{
+  width: 450px;
+  height: 50px;
+  color: rgb(0, 0, 0);
+ 
+}
+.form input
+{
+  width: 300px;
+  height: 60px;
+  margin: 20px;
+  font-size: 25px;
+  background-color: rgb(255, 255, 255);
+  
+  
+  
+}
+.form .tabs
+{
+  width: 450px;
+  height: 50px;
+  color: rgb(255, 255, 255);
+  
+  
+}
+
+
+.active-tabs {
+  background: rgb(32, 30, 63);
+  height: 600px;
+  flex-direction: column;
+}
+
+
+
+.content {
+  height: 600px;
+  width: 450px;
+  display: none;
+  background-color: rgb(32, 30, 63);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  color: azure;
+  border-radius: 40px;
+}
+.content button
+{
+  color: rgb(255, 255, 255);
+  background-color: #4e4c7a;
+  margin-bottom: 0px;
+  margin-top: 100px;
+}
+
+.active-content 
+{
+    display: flex;
+    height: 600px;
+    flex-direction: column;
+}
+
+
+
+.uslugi
+{
+  width: 85%;
+  height: 100vh;
+  float: right;
+  background-image:  url("./images/tło.jpg");
+  background-size: 1650px;
+  
+  
 }
