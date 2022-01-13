@@ -13,6 +13,13 @@ import DashboardTopAdmin from "./components/DashboardTopAdmin.js";
 import DashboardTopUser from "./components/DashboardTopUser.js";
 import Usługi from "./pages/Uslugi.js";
 import UsługiNiezalogowany from "./pages/UslugiNiezalogowany";
+import DashboardNiezalogowany from "./components/DashboardNiezalogowany";
+import DashboardAdmin from "./components/DashboardAdmin";
+import Wiad_i_zam from "./pages/Wiad_i_zam";
+import Kontakt from "./pages/Kontakt";
+import Zamow from "./pages/zamow";
+import Zapytaj from "./pages/zapytaj";
+import KontakrNiezalogowany from "./pages/KontaktNiezalogowany";
 
 function App() {
 
@@ -21,7 +28,7 @@ function App() {
   Axios.defaults.withCredentials = true;
   useEffect(() => {
     Axios.get("http://localhost:3001/api/login").then((response) => {
-      if (response.data.loggedIn == true) {
+      if (response.data.loggedIn === true) {
         setRole(response.data.user[0].rola);
       }
     });
@@ -32,10 +39,13 @@ function App() {
 
    
 
-   {role == "admin" && <DashboardTopAdmin />}
-   {role == "user" && <DashboardTopUser />}
-   {role == "" && <DashboardTop />}
-   <Dashboard/>
+   {role === "admin" && <DashboardTopAdmin />}
+   {role === "admin" && <DashboardAdmin/>}
+   {role === "user" && <DashboardTopUser />}
+   {role === "user" && <Dashboard />}
+   {role === "" && <DashboardTop />}
+   {role === "" && <DashboardNiezalogowany />}
+   
    
    
    
@@ -44,11 +54,16 @@ function App() {
     <Routes>   
           
           <Route path="/" element={<StronaGlowna />}/>  
+          {role === "user" && <Route path="/kontakt" element={<Kontakt />}/> }
           <Route path="/register" element={<Rejestracja/>}/> 
           <Route path="/ofirmie" element={<OFirmie />}/> 
           <Route path="/cennik" element={<Cennik />}/>
-          <Route path="/uslugi" element={<Usługi />}/>
-          <Route path="/uslugi" element={<UsługiNiezalogowany />}/>
+          {role === "" &&  <Route path="/uslugi" element={<UsługiNiezalogowany />}/> }
+          {role === "" &&  <Route path="/kontakt" element={<KontakrNiezalogowany />}/> }
+          {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
+          {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
+          {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
+          {role === "admin" &&  <Route path="/uslugi"  element={<Wiad_i_zam />}/>}
      
     </Routes>
     <Footer/>

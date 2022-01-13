@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import "../App.css";
 
 function Cennik() {
     return (
@@ -87,7 +88,7 @@ function Cennik() {
           </tr>
           <tr>
             <td>12</td>
-            <td>Porada online (np. Discord)</td>
+            <td>Porada online </td>
             <td>-</td>
             <td>0zł</td>
           </tr>

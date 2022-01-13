@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 
-function Register() {
+ function Register() {
 
   
 
@@ -37,7 +37,7 @@ function Register() {
   };
 
   const zaloguj = () => {
-    window.location.reload();
+    
     Axios.post("http://localhost:3001/api/login", {
       login: login,
       haslo: haslo,
@@ -48,12 +48,17 @@ function Register() {
       {
         setloginStatus(response.data[0].login);
       }
+      window.location.reload();
     });
   };
 
+
+  
+
+
   useEffect(() => {
     Axios.get("http://localhost:3001/api/login").then((response) => {
-      if (response.data.loggedIn == true) {
+      if (response.data.loggedIn === true) {
         setloginStatus(response.data.user[0].login);
       }
     });
@@ -101,7 +106,9 @@ function Register() {
         <p/> zarejestruj się.</center></h6>
 
        <button onClick={zaloguj}>Zaloguj</button>
-       <h1>{ loginStatus }</h1>
+
+       
+       <h1> { loginStatus }</h1>
           
         </div>
 
@@ -145,4 +152,4 @@ function Register() {
   );
 }
 
-export default Register ;
+export default Register;

@@ -30,7 +30,7 @@ function DashboardTop() {
        </div>
 
        <div className="rightside2">
-         <h1>ADMIN</h1>
+         <h1>Administrator</h1>
 
        </div>
        

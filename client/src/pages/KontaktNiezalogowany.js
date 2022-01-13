@@ -29,8 +29,9 @@ import Button from '@mui/material/Button';
         <div className="contenerprawy">
             <h1 >Chcesz zadać nam pytanie ?<p/>
             Napisz do nas.</h1><p/>
+            <h10 id="wymagania">Wymagane logowanie</h10>
             <div className="button3">
-            <Button id="trzeci" href="/uslugi/zapytaj">Wyślij wiadomość</Button>
+            <Button  id="trzeci" href="/register">Wyślij wiadomość</Button>
             <div className="kreska"></div>
             <div className="podkreska">
             <h4>Godziny pracy:<p/> (pon - pt) 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {loginStatus} from "../pages/Rejestracja";
 import "../App.css";
 import RingVolumeIcon from '@mui/icons-material/RingVolume';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -32,7 +32,7 @@ function DashboardTop() {
        </div>
 
        <div className="rightside2">
-         <h1>User</h1>
+         <h1>Zalogowano</h1>
 
        </div>
        
