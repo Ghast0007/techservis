@@ -20,6 +20,7 @@ import Kontakt from "./pages/Kontakt";
 import Zamow from "./pages/zamow";
 import Zapytaj from "./pages/zapytaj";
 import KontakrNiezalogowany from "./pages/KontaktNiezalogowany";
+import Zamowione from "./pages/zamowienie_zlozone";
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
           {role === "" &&  <Route path="/kontakt" element={<KontakrNiezalogowany />}/> }
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
+          {role === "user" &&  <Route path="/uslugi/zamow/zamowione"  element={<Zamowione />}/>}
           {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
           {role === "admin" &&  <Route path="/uslugi"  element={<Wiad_i_zam />}/>}
      

@@ -1,5 +1,5 @@
 import React from "react";
-import {loginStatus} from "../pages/Rejestracja";
+
 import "../App.css";
 import RingVolumeIcon from '@mui/icons-material/RingVolume';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';

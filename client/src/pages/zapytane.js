@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 
- function Zapytaj() {
+ function Zapytane() {
 
   
     return (
@@ -71,4 +71,4 @@ import {useDropzone} from 'react-dropzone'
     );
 }
 
-export default Zapytaj;
+export default Zapytane;

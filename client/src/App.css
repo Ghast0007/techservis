@@ -597,7 +597,7 @@ body {
   width: 550px;
   height: 50px;
   border-bottom-style: solid;
- margin-bottom: 30px;
+  margin-bottom: 30px;
   float: right;
 
 }
@@ -605,9 +605,7 @@ body {
 {
   width: 550px;
   height: 250px;
- 
   float: right;
-  
 }
 
 .zamowpage
@@ -628,13 +626,16 @@ body {
   background-size: 1650px;
 }
 
-.instrukcja
+.formularz #instrukcja
 {
   height:5% ;
   color: rgb(0, 0, 0);
   font-size: 30px;
   margin-left: 5%;
   margin-top: 5%;
+  margin-bottom: 1px;
+  font-size: 22px;
+  position: relative; 
 }
 
 .formularz
@@ -647,32 +648,18 @@ body {
   border-radius: 30px;
   box-shadow: 10px 20px 15px rgba(128, 128, 128, 0.802);
   font-size: 20px;
-  
 }
 
-.inputy
-{
-  margin-left: 5%;
-  margin-top: 5%;
-  
-}
 .wiersz1
 {
   margin-left: 5%;
   margin-bottom: 3%;
   margin-top: 3%;
 }
-
-
-
-
 .wiersz2
 {
   margin-left: 5%;
 }
-
-
-
 .wiersz3
 {
   margin-left: 5%;
@@ -680,10 +667,146 @@ body {
 }
 .wiersz3 #opis
 {
-  width: 530px;
+  width: 420px;
   height: 100px;
   color: rgb(0, 0, 0);
-  
+}
 
- 
+.wiersz4
+{
+  margin-left: 5%;
+  margin-top: 3%;
+  width: 444px;
+  height: 120px;
+  color: rgb(111, 111, 111);
+  font-size: 18px;
+  background-color: rgba(217, 218, 228, 0.782);
+  border-radius: 3px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px ;
+  
+}
+#instrukcja2
+{
+  color: #484848;
+  font-size: 15px;
+  margin-left: 5%;
+}
+#instrukcja3
+{
+  color: #09ba00;
+  font-size: 25px;
+  margin-left: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+#instrukcja4
+{
+  color: #373737;
+  font-size: 25px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+#instrukcja5
+{
+  color: #6d6d6d;
+  font-size: 25px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+#instrukcja6
+{
+  color: #a54d4d;
+  width: 600px;
+  font-size: 25px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+#instrukcja7
+{
+  color: #a54d4d;
+  width: 600px;
+  font-size: 20px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+#instrukcja8
+{
+  color: #2875e8;
+  width: 600px;
+  font-size: 30px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+}
+.prawa_zamowienie
+{
+  float: right;
+  width: 400px;
+  margin-top: -50%;
+  margin-right: 5%;
+  
+  
+}
+ .prawa_zamowienie #pierwszy
+{
+  height: 50px;
+  width: 250px;
+  margin-left: 15%;
+  background-color: #e4400f;
+  color: aliceblue;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.prawa_zamowienie #drugi
+{
+  height: 50px;
+  width: 250px;
+  margin-left: 15%;
+  background-color: rgb(32, 30, 63);
+  color: aliceblue;
+  margin-top: 6%;
+  margin-bottom: 5%;
+}
+
+.formularz2
+{
+  width: 500px;
+  height: 600px;
+  background-color: rgba(223, 223, 237, 0.686);
+  margin-left: 33%;
+  margin-top: 8%;
+  border-radius: 30px;
+  box-shadow: 10px 20px 15px rgba(128, 128, 128, 0.802);
+  font-size: 20px;
+}
+.zapytaj
+{
+  width: 500px;
+  margin-right: 5%;
+  margin-left: 5%;
+  
+}
+#instrukcja9
+{
+  color: #333333;
+  font-size: 22px;
+  
+}
+.zapytaj #pierwszy
+{
+  background-color: #e4400f;
+  width: 250px;
+  margin-left: 19%;
+  color: aliceblue;
+}
+#polecenie
+{
+  color: #333333;
+  font-size: 23px;
+  margin-left: 5%;
 }
