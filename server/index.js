@@ -39,6 +39,38 @@ app.use(
   })
 );
 
+app.post("/api/zamow", (req, res) => {
+
+  const imie = req.body.imie;
+  const nazwisko = req.body.nazwisko;
+  const mail = req.body.mail;
+  const tel = req.body.tel;
+  const opis = req.body.opis;
+  const plik = req.body.plik;
+
+
+ 
+
+    db.query(
+      "INSERT INTO zamowienia (Imię, Nazwisko, telefon, mail, opis, plik) VALUES (?, ?, ? ,? ,?, ?)",
+      [imie, nazwisko, mail, tel, opis, plik],
+      (err, result) => {
+        console.log(err);
+      }
+    );
+  });
+
+
+  app.get("/api/wyswietl", (req, res) => {
+    db.query("SELECT * FROM zamowienia", (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+
 app.post("/api/insert", (req, res) => {
 
     const login = req.body.login;
@@ -59,6 +91,8 @@ app.post("/api/insert", (req, res) => {
       );
     });
   });
+
+
 
 app.get("/api/login", (req, res) => {
     if (req.session.user) {

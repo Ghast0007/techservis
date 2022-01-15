@@ -15,12 +15,13 @@ import Usługi from "./pages/Uslugi.js";
 import UsługiNiezalogowany from "./pages/UslugiNiezalogowany";
 import DashboardNiezalogowany from "./components/DashboardNiezalogowany";
 import DashboardAdmin from "./components/DashboardAdmin";
-import Wiad_i_zam from "./pages/Wiad_i_zam";
+import Powiadomienia from "./pages/Powiadomienia";
 import Kontakt from "./pages/Kontakt";
 import Zamow from "./pages/zamow";
 import Zapytaj from "./pages/zapytaj";
-import KontakrNiezalogowany from "./pages/KontaktNiezalogowany";
+import KontaktNiezalogowany from "./pages/KontaktNiezalogowany";
 import Zamowione from "./pages/zamowienie_zlozone";
+import Zapytane from "./pages/zapytane";
 
 function App() {
 
@@ -53,19 +54,22 @@ function App() {
 
    
     <Routes>   
-          
+
+          {role === "admin" &&  <Route path="/uslugi"  element={<Powiadomienia />}/>}
+          {role === "admin" &&  <Route path="/kontakt"  element={<Kontakt />}/>}
           <Route path="/" element={<StronaGlowna />}/>  
           {role === "user" && <Route path="/kontakt" element={<Kontakt />}/> }
           <Route path="/register" element={<Rejestracja/>}/> 
           <Route path="/ofirmie" element={<OFirmie />}/> 
           <Route path="/cennik" element={<Cennik />}/>
-          {role === "" &&  <Route path="/uslugi" element={<UsługiNiezalogowany />}/> }
-          {role === "" &&  <Route path="/kontakt" element={<KontakrNiezalogowany />}/> }
+          {role === "" &&  <Route path="/uslugi/zalogujsie" element={<UsługiNiezalogowany />}/> }
+          {role === "" &&  <Route path="/kontakt" element={<KontaktNiezalogowany />}/> }
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow/zamowione"  element={<Zamowione />}/>}
           {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
-          {role === "admin" &&  <Route path="/uslugi"  element={<Wiad_i_zam />}/>}
+          {role === "user" &&  <Route path="/uslugi/zamow/zapytane"  element={<Zapytane />}/>}
+          
      
     </Routes>
     <Footer/>

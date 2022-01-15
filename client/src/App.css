@@ -797,6 +797,26 @@ body {
   font-size: 22px;
   
 }
+#instrukcja10
+{
+  color: #333333;
+  font-size: 20px;
+  margin-left: 5%;
+  
+  
+}
+#instrukcja11
+{
+  color: #2875e8;
+  width: 600px;
+  font-size: 30px;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family:'Franklin Gothic Medium';
+  line-height: 20px;
+  
+  
+}
 .zapytaj #pierwszy
 {
   background-color: #e4400f;
@@ -809,4 +829,20 @@ body {
   color: #333333;
   font-size: 23px;
   margin-left: 5%;
+}
+#powrot
+{
+  background-color: rgb(206, 206, 220);
+  color: aliceblue;
+  float: right;
+  margin-right: 5%;
+  margin-top: 70%;
+}
+#powrot2
+{
+  background-color: rgb(206, 206, 220);
+  color: aliceblue;
+  float: right;
+  margin-right: 5%;
+  margin-top: -4%;
 }

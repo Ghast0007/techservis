@@ -1,8 +1,9 @@
 import Button from '@mui/material/Button';
 import "../App.css";
 import TextField from '@mui/material/TextField';
-import React, {useCallback} from 'react'
+import React , {useCallback, useEffect, useState } from "react";
 import {useDropzone} from 'react-dropzone'
+import Axios from "axios";
 
  function Zamow() {
 
@@ -10,6 +11,33 @@ import {useDropzone} from 'react-dropzone'
     
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+
+  const [imie, setImie] = useState("");
+  const [nazwisko, setNazwisko] = useState("");
+  const [tel, setTel] = useState("");
+  const [mail, setMail] = useState("");
+  const [opis, setOpis] = useState("");
+  const [plik, setPlik] = useState("");
+
+
+  Axios.defaults.withCredentials = true;
+
+
+  const zamowienie = () => {
+    
+    Axios.post("http://localhost:3001/api/zamow", {
+      imie: imie,
+      nazwisko: nazwisko,
+      tel: tel,
+      mail: mail,
+      opis: opis,
+      plik: plik,
+
+    }).then(()=> {
+      alert("succesful insert");
+    });
+  };
 
     return (
     <div className="zamowpage">
@@ -21,15 +49,22 @@ import {useDropzone} from 'react-dropzone'
            
    
            <div className="wiersz1">
+
+           <TextField id="imie" 
+         label="Imię *" 
+         variant="filled"
+         onChange={(e)=> {
+         setImie(e.target.value);
+      }}/>
          
-        <TextField id="imie" 
-        label="Imię *" 
-        variant="filled" /> <b ></b>
-     
+       <b> </b>
      
          <TextField id="nazwisko" 
          label="Nazwisko *" 
-         variant="filled" />
+         variant="filled"
+         onChange={(e)=> {
+          setNazwisko(e.target.value);
+          }} />
       
        </div> 
        
@@ -37,12 +72,18 @@ import {useDropzone} from 'react-dropzone'
        
          <TextField id="mail" 
          label="E-mail *" 
-         variant="filled" /> <b ></b>
+         variant="filled" 
+         onChange={(e)=> {
+          setMail(e.target.value);
+          }}/> <b ></b>
       
       
         <TextField id="tel" 
         label="Nr. tel. *" 
-        variant="filled" />
+        variant="filled" 
+        onChange={(e)=> {
+          setTel(e.target.value);
+          }}/>
      
       </div>
       <div className="wiersz3">
@@ -54,13 +95,19 @@ import {useDropzone} from 'react-dropzone'
           rows={6}
           defaultValue=""
           variant="filled"
+          onChange={(e)=> {
+            setOpis(e.target.value);
+            }}
         />
         </div>
 
         <div className="wiersz4">
           
         <div className='dropzone' {...getRootProps()}>
-      <input {...getInputProps()} />
+      <input {...getInputProps()} 
+      onChange={(e)=> {
+        setPlik(e.target.value);
+        }}/>
       {
         isDragActive ?
           <p>Upuść plik tutaj ...</p> :
@@ -75,7 +122,7 @@ import {useDropzone} from 'react-dropzone'
         <a id='instrukcja2'>* - pola wymagane </a>
        <div className="prawa_zamowienie">
          Po wypełnienu formularza, złóż zamówienie klikając poniższy przycisk...<p/>
-         <Button id="pierwszy"  href="/uslugi/zamow/zamowione"  > Złóż zamówienie </Button>
+         <Button id="pierwszy"  href="/uslugi/zamow/zamowione" onClick={zamowienie} > Złóż zamówienie </Button>
         <p/>
          Jeśli masz do nas jakieś pytanie, możesz je zadać klikając poniższy przycisk...
          <Button id="drugi" href="/uslugi/zapytaj"   > Zapytaj </Button>

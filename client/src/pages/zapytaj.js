@@ -1,8 +1,8 @@
 import Button from '@mui/material/Button';
 import "../App.css";
 import TextField from '@mui/material/TextField';
-import React, {useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
+import React from 'react'
+
 
  function Zapytaj() {
 
