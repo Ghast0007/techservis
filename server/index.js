@@ -45,6 +45,7 @@ app.post("/api/zamow", (req, res) => {
   const nazwisko = req.body.nazwisko;
   const mail = req.body.mail;
   const tel = req.body.tel;
+  const kategoria = req.body.kategoria;
   const opis = req.body.opis;
   const plik = req.body.plik;
 
@@ -52,17 +53,27 @@ app.post("/api/zamow", (req, res) => {
  
 
     db.query(
-      "INSERT INTO zamowienia (Imię, Nazwisko, telefon, mail, opis, plik) VALUES (?, ?, ? ,? ,?, ?)",
-      [imie, nazwisko, mail, tel, opis, plik],
+      "INSERT INTO zamowienia (Imię, Nazwisko, telefon, mail, kategoria, opis, plik) VALUES (?, ?, ? ,? ,?, ?)",
+      [imie, nazwisko, mail, tel, kategoria, opis, plik],
       (err, result) => {
         console.log(err);
       }
     );
   });
 
-
   app.get("/api/wyswietl", (req, res) => {
-    db.query("SELECT * FROM zamowienia", (err, result) => {
+
+  const imie = req.body.imie;
+  const nazwisko = req.body.nazwisko;
+  const mail = req.body.mail;
+  const tel = req.body.tel;
+  const kategoria = req.body.kategoria;
+  const opis = req.body.opis;
+  const plik = req.body.plik;
+
+    db.query("SELECT * FROM zamowienia", 
+    [imie, nazwisko, mail, tel, kategoria, opis, plik], 
+    (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -70,6 +81,30 @@ app.post("/api/zamow", (req, res) => {
       }
     });
   });
+
+
+  app.post("/api/zapytaj", (req, res) => {
+
+    const imie = req.body.imie;
+    const nazwisko = req.body.nazwisko;
+    const mail = req.body.mail;
+    const tel = req.body.tel;
+    const pytanie = req.body.pytanie;
+    const plik = req.body.plik;
+  
+  
+   
+  
+      db.query(
+        "INSERT INTO zapytania (Imię, Nazwisko, tel, mail, pytanie, plik) VALUES (?, ?, ? ,? ,?, ?)",
+        [imie, nazwisko, mail, tel, pytanie, plik],
+        (err, result) => {
+          console.log(err);
+        }
+      );
+    });
+
+  
 
 app.post("/api/insert", (req, res) => {
 

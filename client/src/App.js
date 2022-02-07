@@ -62,7 +62,7 @@ function App() {
           <Route path="/register" element={<Rejestracja/>}/> 
           <Route path="/ofirmie" element={<OFirmie />}/> 
           <Route path="/cennik" element={<Cennik />}/>
-          {role === "" &&  <Route path="/uslugi/zalogujsie" element={<UsługiNiezalogowany />}/> }
+          {role === "" &&  <Route path="/uslugi" element={<UsługiNiezalogowany />}/> }
           {role === "" &&  <Route path="/kontakt" element={<KontaktNiezalogowany />}/> }
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}

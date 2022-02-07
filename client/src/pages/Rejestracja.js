@@ -106,7 +106,7 @@ import Axios from "axios";
         <p/> zarejestruj się.</center></h6>
 
        <button onClick={zaloguj}>Zaloguj</button>
-
+      
        
        <h1> { loginStatus }</h1>
           

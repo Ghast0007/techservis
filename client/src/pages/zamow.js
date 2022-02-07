@@ -1,9 +1,14 @@
 import Button from '@mui/material/Button';
 import "../App.css";
 import TextField from '@mui/material/TextField';
-import React , {useCallback, useEffect, useState } from "react";
+import React , {useCallback, useState } from "react";
 import {useDropzone} from 'react-dropzone'
+
 import Axios from "axios";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import NativeSelect from '@mui/material/NativeSelect';
 
  function Zamow() {
 
@@ -17,6 +22,7 @@ import Axios from "axios";
   const [nazwisko, setNazwisko] = useState("");
   const [tel, setTel] = useState("");
   const [mail, setMail] = useState("");
+  const [kategoria, setKategoria] = useState("");
   const [opis, setOpis] = useState("");
   const [plik, setPlik] = useState("");
 
@@ -84,10 +90,34 @@ import Axios from "axios";
         onChange={(e)=> {
           setTel(e.target.value);
           }}/>
+
+
      
       </div>
       <div className="wiersz3">
-
+     
+      <FormControl >
+        <InputLabel variant="filled" htmlFor="uncontrolled-native">
+          Kategoria
+        </InputLabel>
+        <NativeSelect
+          defaultValue={30}
+          inputProps={{
+            name: 'kategoria',
+            id: 'uncontrolled-native',
+          }}
+        >
+          <option value={10}>Komputery</option>
+          <option value={20}>Laptopy</option>
+          <option value={30}>Inne</option>
+          onChange={(e)=> {
+          setKategoria(e.target.value);
+          }}
+        </NativeSelect>
+        
+      </FormControl>
+      </div>
+<div className='wiersz4'>
       <TextField
           id="opis"
           label="Opis problemu *"
@@ -99,9 +129,9 @@ import Axios from "axios";
             setOpis(e.target.value);
             }}
         />
-        </div>
-
-        <div className="wiersz4">
+      
+      </div>
+        <div className="wiersz5">
           
         <div className='dropzone' {...getRootProps()}>
       <input {...getInputProps()} 

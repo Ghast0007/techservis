@@ -150,7 +150,6 @@ body {
   width: 15%;
   background-color:rgb(32, 30, 63);
 }
-
 .Dashboard img
 {
   width: 75%;
@@ -159,13 +158,11 @@ body {
   margin-top: 10%;
   margin-bottom: 10%;
 }
-
 .DashboardList{
   height: 100vh;
   padding: 0;
   width: 100%;
 }
-
 .DashboardList .row {
   width: 100%;
   height: 65px;
@@ -176,11 +173,8 @@ body {
   color: white;
   justify-content: center;
   align-items: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-
+  font-family: 'Trebuchet MS';
 }
-
 .DashboardList .row:hover{
   cursor: pointer;
   background-color: rgb(29, 21, 53);
@@ -199,16 +193,11 @@ body {
 }
 
 
-
-
 .ofirmie
 {
   height: 100%;
   width: 85%;
   float: right;
-  
-  
-  
 }
 
 .ofirmie .naglowek
@@ -219,7 +208,6 @@ body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: rgb(0, 0, 0);
   text-shadow:2px 1px 0 rgb(192, 185, 255);
-
 }
 
 .ofirmie .lewa_strona
@@ -229,26 +217,23 @@ body {
   text-shadow:1px 1px 0 rgb(136, 135, 211);
   float: left;
   color: rgb(56, 55, 104);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system;
 }
 .ofirmie .lewa_strona #b
 {
   margin-top: 80px;
   margin-bottom: 80px;
   font-size: 25px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system;
   line-height: 38px;
 }
-
 
 .ofirmie .prawa_strona
 {
   width: 45%;
   float: right;
   margin-right: 50px;
-  
 }
-
 
 .ofirmie .prawa_strona #a
 {
@@ -355,8 +340,6 @@ body {
   float: right;
   background-color: rgba(29, 26, 63, 0.966);
   box-shadow: 30px 70px 25px rgba(128, 128, 128, 0.658);
-  
-  
 }
 .form button
 {
@@ -372,27 +355,19 @@ body {
   margin: 20px;
   font-size: 25px;
   background-color: rgb(255, 255, 255);
-  
-  
-  
 }
 .form .tabs
 {
   width: 450px;
   height: 50px;
   color: rgb(255, 255, 255);
-  
-  
 }
-
 
 .active-tabs {
   background: rgb(32, 30, 63);
   height: 600px;
   flex-direction: column;
 }
-
-
 
 .content {
   height: 600px;
@@ -421,8 +396,6 @@ body {
     flex-direction: column;
 }
 
-
-
 .uslugi
 {
   width: 85%;
@@ -430,7 +403,6 @@ body {
   float: right;
   background-image:  url("./images/tło.jpg");
   background-size: 1650px;
- 
 }
 .cardleft
 {
@@ -489,16 +461,7 @@ body {
   background-color: #4e4c7a;
 }
 
-.zamowienia
-{
-  width: 85%;
-  height: 100vh;
-  float: right;
-  background-image:  url("./images/tło.jpg");
-  background-size: 1650px;
-  
-  
-}
+
 
 .kontaktpage
 {
@@ -517,7 +480,6 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
-  
 }
 .naglowek #a
 {
@@ -534,8 +496,6 @@ body {
   font-weight: 700;
   margin-left: 7%;
   margin-top: 15%;
-  
- 
 }
 
 .contener #b
@@ -641,7 +601,7 @@ body {
 .formularz
 {
   width: 1000px;
-  height: 600px;
+  height:700px;
   background-color: rgba(223, 223, 237, 0.686);
   margin-left: 20%;
   margin-top: 8%;
@@ -665,14 +625,20 @@ body {
   margin-left: 5%;
   margin-top: 3%;
 }
-.wiersz3 #opis
+.wiersz4 #opis
 {
   width: 420px;
   height: 100px;
   color: rgb(0, 0, 0);
 }
-
 .wiersz4
+{
+  margin-left: 5%;
+  margin-top: 3%;
+  width: 420px;
+}
+
+.wiersz5
 {
   margin-left: 5%;
   margin-top: 3%;
@@ -684,7 +650,6 @@ body {
   border-radius: 3px;
   border-bottom-style: solid;
   border-bottom-width: 1px ;
-  
 }
 #instrukcja2
 {
@@ -748,8 +713,6 @@ body {
   width: 400px;
   margin-top: -50%;
   margin-right: 5%;
-  
-  
 }
  .prawa_zamowienie #pierwszy
 {
@@ -776,10 +739,10 @@ body {
 .formularz2
 {
   width: 500px;
-  height: 600px;
+  height: 730px;
   background-color: rgba(223, 223, 237, 0.686);
   margin-left: 33%;
-  margin-top: 8%;
+  margin-top: 5%;
   border-radius: 30px;
   box-shadow: 10px 20px 15px rgba(128, 128, 128, 0.802);
   font-size: 20px;
@@ -789,21 +752,17 @@ body {
   width: 500px;
   margin-right: 5%;
   margin-left: 5%;
-  
 }
 #instrukcja9
 {
   color: #333333;
   font-size: 22px;
-  
 }
 #instrukcja10
 {
   color: #333333;
   font-size: 20px;
   margin-left: 5%;
-  
-  
 }
 #instrukcja11
 {
@@ -814,8 +773,6 @@ body {
   margin-top: 5%;
   font-family:'Franklin Gothic Medium';
   line-height: 20px;
-  
-  
 }
 .zapytaj #pierwszy
 {
@@ -845,4 +802,72 @@ body {
   float: right;
   margin-right: 5%;
   margin-top: -4%;
+}
+
+.zamowienia
+{
+  width: 85%;
+  height: 100vh;
+  float: right;
+  background-image:  url("./images/tło.jpg");
+  background-size: 1650px;
+}
+.zamowienia2
+{
+  margin-left: 4%;
+  margin-top: 4%;
+}
+
+
+
+
+
+
+.information {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+  margin: 5px;
+
+}
+
+ button {
+  width: 320px;
+  height: 50px;
+  margin-top: 15px;
+} 
+
+ button:hover {
+  cursor: pointer;
+}
+
+.employees {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.employee {
+  width: 700px;
+  height: auto;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.employee h3 {
+  margin: 20px;
 }
