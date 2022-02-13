@@ -37,6 +37,7 @@ import NativeSelect from '@mui/material/NativeSelect';
       nazwisko: nazwisko,
       tel: tel,
       mail: mail,
+      kategoria: kategoria,
       opis: opis,
       plik: plik,
 
@@ -109,7 +110,8 @@ import NativeSelect from '@mui/material/NativeSelect';
         >
           <option value={10}>Komputery</option>
           <option value={20}>Laptopy</option>
-          <option value={30}>Inne</option>
+          <option value={30}>Peryferia</option>
+          <option value={40}>Inne</option>
           onChange={(e)=> {
           setKategoria(e.target.value);
           }}

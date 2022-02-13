@@ -81,7 +81,7 @@ import Axios from "axios";
           }}/>
      
       </div>
-      <div className="wiersz3">
+      <div className="wiersz4">
 
       <TextField
           id="opis"
