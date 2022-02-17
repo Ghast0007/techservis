@@ -1,14 +1,10 @@
 import Button from '@mui/material/Button';
 import "../App.css";
 import TextField from '@mui/material/TextField';
-import React , {useCallback, useState } from "react";
+import React , {useCallback,  useEffect, useState } from "react";
 import {useDropzone} from 'react-dropzone'
 
 import Axios from "axios";
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
 
  function Zamow() {
 
@@ -18,33 +14,38 @@ import NativeSelect from '@mui/material/NativeSelect';
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
 
-  const [imie, setImie] = useState("");
-  const [nazwisko, setNazwisko] = useState("");
-  const [tel, setTel] = useState("");
-  const [mail, setMail] = useState("");
+  
   const [kategoria, setKategoria] = useState("");
   const [opis, setOpis] = useState("");
-  const [plik, setPlik] = useState("");
+  const [url, setURL] = useState("");
 
+  const [user, setUser] = useState({});
 
   Axios.defaults.withCredentials = true;
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/login").then((response) => {
+  //   console.log(response.data)
+  setUser(response.data.user[0])
+    });
+   
+  }, []);
+
+ 
 
 
-  const zamowienie = () => {
-    
+  const zamow = () => {
+    console.log(user)
     Axios.post("http://localhost:3001/api/zamow", {
-      imie: imie,
-      nazwisko: nazwisko,
-      tel: tel,
-      mail: mail,
+      
       kategoria: kategoria,
       opis: opis,
-      plik: plik,
+      url:url,
+      user_id: user.Id
 
     }).then(()=> {
       alert("succesful insert");
-    });
-  };
+       });
+        };
 
     return (
     <div className="zamowpage">
@@ -57,67 +58,30 @@ import NativeSelect from '@mui/material/NativeSelect';
    
            <div className="wiersz1">
 
-           <TextField id="imie" 
-         label="Imię *" 
-         variant="filled"
-         onChange={(e)=> {
-         setImie(e.target.value);
-      }}/>
-         
-       <b> </b>
-     
-         <TextField id="nazwisko" 
-         label="Nazwisko *" 
-         variant="filled"
-         onChange={(e)=> {
-          setNazwisko(e.target.value);
-          }} />
-      
-       </div> 
-       
-       <div className="wiersz2">
-       
-         <TextField id="mail" 
-         label="E-mail *" 
-         variant="filled" 
-         onChange={(e)=> {
-          setMail(e.target.value);
-          }}/> <b ></b>
-      
-      
-        <TextField id="tel" 
-        label="Nr. tel. *" 
-        variant="filled" 
-        onChange={(e)=> {
-          setTel(e.target.value);
-          }}/>
+          
 
 
      
       </div>
       <div className="wiersz3">
      
-      <FormControl >
-        <InputLabel variant="filled" htmlFor="uncontrolled-native">
-          Kategoria
-        </InputLabel>
-        <NativeSelect
-          defaultValue={30}
-          inputProps={{
-            name: 'kategoria',
-            id: 'uncontrolled-native',
-          }}
-        >
-          <option value={10}>Komputery</option>
-          <option value={20}>Laptopy</option>
-          <option value={30}>Peryferia</option>
-          <option value={40}>Inne</option>
+      
+        <select
+          defaultValue="Komputery"
           onChange={(e)=> {
+            console.log(e.target.value)
           setKategoria(e.target.value);
           }}
-        </NativeSelect>
+          
+        >
+          <option value="Komputery" selected>Komputery</option>
+          <option value="Laptopy">Laptopy</option>
+          <option value="Peryferia">Peryferia</option>
+          <option value="Inne">Inne</option>
+         
+        </select>
         
-      </FormControl>
+    
       </div>
 <div className='wiersz4'>
       <TextField
@@ -138,7 +102,7 @@ import NativeSelect from '@mui/material/NativeSelect';
         <div className='dropzone' {...getRootProps()}>
       <input {...getInputProps()} 
       onChange={(e)=> {
-        setPlik(e.target.value);
+        setURL(e.target.value);
         }}/>
       {
         isDragActive ?
@@ -154,7 +118,7 @@ import NativeSelect from '@mui/material/NativeSelect';
         <a id='instrukcja2'>* - pola wymagane </a>
        <div className="prawa_zamowienie">
          Po wypełnienu formularza, złóż zamówienie klikając poniższy przycisk...<p/>
-         <Button id="pierwszy"  href="/uslugi/zamow/zamowione" onClick={zamowienie} > Złóż zamówienie </Button>
+         <Button id="pierwszy"   href="/uslugi/zamow/zamowione" onClick={zamow} > Złóż zamówienie </Button>
         <p/>
          Jeśli masz do nas jakieś pytanie, możesz je zadać klikając poniższy przycisk...
          <Button id="drugi" href="/uslugi/zapytaj"   > Zapytaj </Button>

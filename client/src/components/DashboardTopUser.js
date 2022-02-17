@@ -1,12 +1,24 @@
-import React from "react";
-
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import RingVolumeIcon from '@mui/icons-material/RingVolume';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-
+import Button from '@mui/material/Button';
 
 function DashboardTop() {
     
+    const [user, setUser] = useState({});
+
+  Axios.defaults.withCredentials = true;
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/login").then((response) => {
+  //   console.log(response.data)
+  setUser(response.data.user[0])
+    });
+   
+  }, []);
+
+
     return (
     <div className="DashboardTop">
        
@@ -27,12 +39,12 @@ function DashboardTop() {
 
        </div>
        <div className="rightside">
-         
+       <h1>Witaj {user.login}</h1>
         
        </div>
 
        <div className="rightside2">
-         <h1>Zalogowano</h1>
+       <Button size="small" href="/wyloguj">Wyloguj</Button>
 
        </div>
        

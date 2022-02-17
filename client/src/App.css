@@ -93,15 +93,27 @@ body {
 .DashboardTop .rightside
 {
   flex: 25%;
- 
+ color: rgb(255, 255, 255);
+ margin-left: 100px;
 }
 
 .DashboardTop .rightside2
 {
   flex: 25%;
   color: white;
+  margin-left: 0px;
 }
-
+.rightside2 button
+{
+  background-color: #e4400f;
+  color: aliceblue;
+  font-size: 20px;
+  width: 200px;
+  height: 36px;
+  margin-top: 1.5%;
+  margin-right: 5%;
+  margin-left: 10%;
+}
 
 
 .footer
@@ -352,7 +364,7 @@ body {
 {
   width: 300px;
   height: 60px;
-  margin: 20px;
+  margin: 10px;
   font-size: 25px;
   background-color: rgb(255, 255, 255);
 }
@@ -385,8 +397,8 @@ body {
 {
   color: rgb(255, 255, 255);
   background-color: #4e4c7a;
-  margin-bottom: 0px;
-  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .active-content 
@@ -711,7 +723,7 @@ body {
 {
   float: right;
   width: 400px;
-  margin-top: -50%;
+  margin-top: -40%;
   margin-right: 5%;
 }
  .prawa_zamowienie #pierwszy

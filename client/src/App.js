@@ -18,7 +18,7 @@ import DashboardAdmin from "./components/DashboardAdmin";
 import Powiadomienia from "./pages/Powiadomienia";
 import Kontakt from "./pages/Kontakt";
 import Zamow from "./pages/zamow";
-import Zapytaj from "./pages/zapytaj";
+import Wyloguj from "./components/Wyloguj.js";
 import KontaktNiezalogowany from "./pages/KontaktNiezalogowany";
 import Zamowione from "./pages/zamowienie_zlozone";
 import Zapytane from "./pages/zapytane";
@@ -34,6 +34,8 @@ function App() {
         setRole(response.data.user[0].rola);
       }
     });
+    console.log("123")
+    console.log(role)
   }, []);
 
   return ( 
@@ -57,7 +59,8 @@ function App() {
 
           {role === "admin" &&  <Route path="/uslugi"  element={<Powiadomienia />}/>}
           {role === "admin" &&  <Route path="/kontakt"  element={<Kontakt />}/>}
-          <Route path="/" element={<StronaGlowna />}/>  
+          <Route path="/" element={<StronaGlowna />}/> 
+          <Route path="/wyloguj" element={<Wyloguj />}/>  
           {role === "user" && <Route path="/kontakt" element={<Kontakt />}/> }
           <Route path="/register" element={<Rejestracja/>}/> 
           <Route path="/ofirmie" element={<OFirmie />}/> 
@@ -67,7 +70,7 @@ function App() {
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow/zamowione"  element={<Zamowione />}/>}
-          {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
+          
           {role === "user" &&  <Route path="/uslugi/zamow/zapytane"  element={<Zapytane />}/>}
           
      

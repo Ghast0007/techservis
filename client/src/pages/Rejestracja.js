@@ -10,6 +10,10 @@ import Axios from "axios";
   
   const [loginREG, setloginREG] = useState("");
   const [hasloREG, sethasloREG] = useState("");
+  const [imieREG, setimieREG] = useState("");
+  const [nazwiskoREG, setnazwiskoREG] = useState("");
+  const [mailREG, setmailREG] = useState("");
+  const [telefonREG, settelefonREG] = useState("");
 
   const [login, setloginLOG] = useState("");
   const [haslo, sethasloLOG] = useState("");
@@ -18,10 +22,13 @@ import Axios from "axios";
 
   const [toggleState, setToggleState] = useState(1);
 
+  
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
+ 
 
 
   Axios.defaults.withCredentials = true;
@@ -31,6 +38,10 @@ import Axios from "axios";
     Axios.post("http://localhost:3001/api/insert", {
       login: loginREG,
       haslo: hasloREG,
+      imie: imieREG,
+      nazwisko: nazwiskoREG,
+      mail: mailREG,
+      telefon: telefonREG,
     }).then(()=> {
       alert("succesful insert");
     });
@@ -48,13 +59,12 @@ import Axios from "axios";
       {
         setloginStatus(response.data[0].login);
       }
-      window.location.reload();
+     
     });
   };
 
 
-  
-
+ 
 
   useEffect(() => {
     Axios.get("http://localhost:3001/api/login").then((response) => {
@@ -117,11 +127,39 @@ import Axios from "axios";
         >
           <h1>Zarejestruj się</h1>
         <input 
-      type="login" 
+      type="text" 
       name="login" 
       placeholder="Login ..." 
       onChange={(e)=> {
       setloginREG(e.target.value);
+      }}/>
+       <input 
+      type="text" 
+      name="imie" 
+      placeholder="Imie ..." 
+      onChange={(e)=> {
+      setimieREG(e.target.value);
+      }}/>
+       <input 
+      type="text" 
+      name="nazwisko" 
+      placeholder="Nazwisko ..." 
+      onChange={(e)=> {
+      setnazwiskoREG(e.target.value);
+      }}/>
+       <input 
+      type="text" 
+      name="mail" 
+      placeholder="Mail ..." 
+      onChange={(e)=> {
+      setmailREG(e.target.value);
+      }}/>
+       <input 
+      type="text" 
+      name="telefon" 
+      placeholder="Telefon ..." 
+      onChange={(e)=> {
+      settelefonREG(e.target.value);
       }}/>
       <input 
       type="password" 

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../App.css";
 
-import React from 'react'
 
 
  function Powiadomienia() {
@@ -11,11 +10,12 @@ import React from 'react'
   const [listazamowien, setListaZamowien] = useState([]);
 
  
-  const zamowienia = () => {
-    Axios.get("http://localhost:3001/api/wyswietl").then((response) => {
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/zamowienia_lista").then((response) => {
       setListaZamowien(response.data);
+      console.log(response.data)
     });
-  };
+  }, []);
 
  
 
@@ -24,24 +24,22 @@ import React from 'react'
         <div className="zamowienia2">
         
       <div className="employees">
-        <button onClick={zamowienia}>Show</button>
+      {listazamowien.map(({opis, url, kategoria, user_id}) => (
 
-        {listazamowien.map((val, key) => {
-          return (
-            <div className="employee">
-              <div>
-                <h3>imie: {val.imie}</h3>
-                <h3>nazwisko: {val.nazwisko}</h3>
-                <h3>mail: {val.mail}</h3>
-                <h3>telefon: {val.telefon}</h3>
-                <h3>kategoria: {val.kategoria}</h3>
-                <h3>opis: {val.opis}</h3>
-                <h3>plik: {val.plik}</h3>
-              </div>
-              
-            </div>
-          );
-        })}
+<div className="employee">
+  <div>
+    <h3>user_id: {user_id}</h3>
+    <h3>opis: {opis}</h3>
+    <h3>url: {url}</h3>
+    <h3>kategoria: {kategoria}</h3>
+   
+  </div>
+
+</div>
+
+))}
+
+       
       </div>
         </div>
         

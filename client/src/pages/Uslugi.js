@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,8 +8,23 @@ import Typography from '@mui/material/Typography';
 import "../App.css";
 import card1 from "../images/card1.jpg";
 import card2 from "../images/card2.jpg";
+import Axios from "axios";
 
 function Uslugi() {
+
+  const [user, setUser] = useState({});
+
+  Axios.defaults.withCredentials = true;
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/login").then((response) => {
+  //   console.log(response.data)
+  setUser(response.data.user[0])
+    });
+   
+  }, []);
+
+
+
     return (
     <div className="uslugi">
        <div className='cardleft'>

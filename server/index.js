@@ -39,70 +39,8 @@ app.use(
   })
 );
 
-app.post("/api/zamow", (req, res) => {
-
-  const imie = req.body.imie;
-  const nazwisko = req.body.nazwisko;
-  const mail = req.body.mail;
-  const tel = req.body.tel;
-  const kategoria = req.body.kategoria;
-  const opis = req.body.opis;
-  const plik = req.body.plik;
 
 
- 
-
-    db.query(
-      "INSERT INTO zamowienia (Imię, Nazwisko, telefon, mail, kategoria, opis, plik) VALUES (?, ?, ? ,? ,?, ?)",
-      [imie, nazwisko, mail, tel, kategoria, opis, plik],
-      (err, result) => {
-        console.log(err);
-      }
-    );
-  });
-
-  app.get("/api/wyswietl", (req, res) => {
-
-  const imie = req.body.imie;
-  const nazwisko = req.body.nazwisko;
-  const mail = req.body.mail;
-  const tel = req.body.tel;
-  const kategoria = req.body.kategoria;
-  const opis = req.body.opis;
-  const plik = req.body.plik;
-
-    db.query("SELECT * FROM zamowienia", 
-    [imie, nazwisko, mail, tel, kategoria, opis, plik], 
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    });
-  });
-
-
-  app.post("/api/zapytaj", (req, res) => {
-
-    const imie = req.body.imie;
-    const nazwisko = req.body.nazwisko;
-    const mail = req.body.mail;
-    const tel = req.body.tel;
-    const pytanie = req.body.pytanie;
-    const plik = req.body.plik;
-  
-  
-   
-  
-      db.query(
-        "INSERT INTO zapytania (Imię, Nazwisko, tel, mail, pytanie, plik) VALUES (?, ?, ? ,? ,?, ?)",
-        [imie, nazwisko, mail, tel, pytanie, plik],
-        (err, result) => {
-          console.log(err);
-        }
-      );
-    });
 
   
 
@@ -110,6 +48,10 @@ app.post("/api/insert", (req, res) => {
 
     const login = req.body.login;
     const haslo = req.body.haslo;
+    const imie = req.body.imie;
+    const nazwisko = req.body.nazwisko;
+    const mail = req.body.mail;
+    const telefon = req.body.telefon;
 
 
     bcrypt.hash(haslo, saltRounds, (err, hash) => {
@@ -118,14 +60,33 @@ app.post("/api/insert", (req, res) => {
       }
   
       db.query(
-        "INSERT INTO logowanie (login, haslo, rola) VALUES (?,?,'user')",
-        [login, hash],
+        "INSERT INTO logowanie (login, haslo, rola, imie, nazwisko, mail, telefon) VALUES (?,?,'user', ?, ?, ?, ?)",
+        [login, hash, imie, nazwisko, mail, telefon],
         (err, result) => {
           console.log(err);
         }
       );
     });
   });
+
+
+  app.post("/api/zamow", (req, res) => {
+
+    const opis = req.body.opis;
+    const url = req.body.url;
+    const kategoria = req.body.kategoria;
+    const user_id = req.body.user_id;
+   
+  
+      db.query(
+        "INSERT INTO zamowienia (opis, url, kategoria, user_id) VALUES (?, ?, ?, ?)",
+        [opis, url, kategoria, user_id],
+        (err, result) => {
+          console.log(err);
+        }
+      );
+    });
+  
 
 
 
@@ -166,6 +127,37 @@ app.post("/api/login", (req, res) => {
         }
     );
 });
+
+app.get("/api/zamowienia_lista", (req, res) => {
+
+  db.query(
+    "SELECT * FROM zamowienia",(err,result) => {
+      if (err){
+        res.send({err: err});
+    }
+    else{
+
+result.forEach((key, {user_id})=> {
+  db.query(
+    "SELECT * FROM logowanie WHERE Id = 31",(errr,resultt) => {
+      result[key] = resultt
+    }
+  )
+})
+     
+    
+      res.send(result)
+    }
+    }
+  )
+})
+
+app.get("/logout", function(req, res) {
+  req.session.destroy(() => {
+  // req.logout();
+  // res.redirect("/"); //Inside a callback… bulletproof!
+  });
+ });
 
 app.listen(3001, () => {
     console.log("running on port 3001");
