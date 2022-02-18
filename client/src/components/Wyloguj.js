@@ -1,6 +1,7 @@
 import React , { useEffect, useState } from "react";
 import "../App.css";
 import Axios from "axios";
+import StronaGlowna from "../pages/StronaGlowna";
 
 
 function Wyloguj() {
@@ -17,8 +18,8 @@ function Wyloguj() {
   }, []);
 
     return (
-    <div className="cos">
-       
+    <div className="StronaGlowna">
+       <StronaGlowna />
     </div>
     );
 }

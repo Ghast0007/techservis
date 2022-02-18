@@ -103,18 +103,24 @@ body {
   color: white;
   margin-left: 0px;
 }
-.rightside2 button
+.DashboardTop .rightside2user
 {
-  background-color: #e4400f;
-  color: aliceblue;
-  font-size: 20px;
-  width: 200px;
-  height: 36px;
-  margin-top: 1.5%;
-  margin-right: 5%;
-  margin-left: 10%;
+  flex: 25%;
+  color: white;
+  margin-left: 0px;
 }
-
+.rightside2 #wyloguj
+{
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #ff0000;
+  margin-right: 50px;
+  height: 80%;
+  width: 60%;
+  margin-top: 1.5%;
+  border-radius: 10px;
+  
+}
 
 .footer
 {
@@ -863,14 +869,14 @@ input {
   cursor: pointer;
 }
 
-.employees {
+.wyswietl1 {
   display: flex;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
   width: 100%;
 }
 
-.employee {
+.wyswietl2 {
   width: 700px;
   height: auto;
   border: 1px solid black;
@@ -880,6 +886,6 @@ input {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.employee h3 {
+.wyswietl2 h3 {
   margin: 20px;
 }

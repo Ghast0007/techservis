@@ -6,7 +6,7 @@ import "../App.css";
 
  function Powiadomienia() {
 
-
+  const [user, setUser] = useState({});
   const [listazamowien, setListaZamowien] = useState([]);
 
  
@@ -17,16 +17,23 @@ import "../App.css";
     });
   }, []);
 
- 
+  Axios.defaults.withCredentials = true;
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/login").then((response) => {
+  //   console.log(response.data)
+  setUser(response.data.user[0])
+    });
+   
+  }, []);
 
     return (
     <div className="zamowienia">
         <div className="zamowienia2">
-        
-      <div className="employees">
-      {listazamowien.map(({opis, url, kategoria, user_id}) => (
+        <h1>Witaj {user.login}</h1>
+      <div className="wyswietl1">
+      {listazamowien.map(({opis, url, kategoria, user_id, imie}) => (
 
-<div className="employee">
+<div className="wyswietl2">
   <div>
     <h3>user_id: {user_id}</h3>
     <h3>opis: {opis}</h3>
