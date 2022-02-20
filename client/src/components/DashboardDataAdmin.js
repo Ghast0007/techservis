@@ -22,7 +22,7 @@ export const DashboardData = [
     },
     
     {
-        title: "Powiadomienia i zamówienia",
+        title: "Zamówienia",
         icon: <LocalOfferIcon />,
         link: "/Uslugi"
     },

@@ -622,12 +622,24 @@ body {
   height:700px;
   background-color: rgba(223, 223, 237, 0.686);
   margin-left: 20%;
-  margin-top: 8%;
+  margin-top: 5%;
   border-radius: 30px;
   box-shadow: 10px 20px 15px rgba(128, 128, 128, 0.802);
   font-size: 20px;
+  color: #333333;
 }
+.formularz_odstep
+{
+  position: fixed;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+.imie
+{
+  margin-bottom: 2%;
+  color: #333333;
 
+}
 .wiersz1
 {
   margin-left: 5%;
@@ -825,10 +837,10 @@ body {
 .zamowienia
 {
   width: 85%;
-  height: 100vh;
+  height: 100%;
   float: right;
-  background-image:  url("./images/tło.jpg");
-  background-size: 1650px;
+  
+
 }
 .zamowienia2
 {
@@ -836,18 +848,12 @@ body {
   margin-top: 4%;
 }
 
-
-
-
-
-
 .information {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 input {

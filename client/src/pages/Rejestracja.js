@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import StronaGlowna from './StronaGlowna';
 
 
  function Register() {
@@ -58,6 +59,8 @@ import Axios from "axios";
       }else
       {
         setloginStatus(response.data[0].login);
+        window.location.reload();
+         
       }
      
     });

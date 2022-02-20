@@ -22,6 +22,7 @@ import Wyloguj from "./components/Wyloguj.js";
 import KontaktNiezalogowany from "./pages/KontaktNiezalogowany";
 import Zamowione from "./pages/zamowienie_zlozone";
 import Zapytane from "./pages/zapytane";
+import Zapytaj from "./pages/zapytaj";
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
           {role === "" &&  <Route path="/kontakt" element={<KontaktNiezalogowany />}/> }
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
+          {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow/zamowione"  element={<Zamowione />}/>}
           
           {role === "user" &&  <Route path="/uslugi/zamow/zapytane"  element={<Zapytane />}/>}

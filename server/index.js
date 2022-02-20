@@ -13,6 +13,7 @@ const db = mysql.createPool({
     user: "root",
     password:"",
     database:"techservisdatabase",
+    multipleStatements: true,
 });
 
 app.use(
@@ -139,7 +140,7 @@ app.get("/api/zamowienia_lista", (req, res) => {
 
 result.forEach((key, {user_id})=> {
   db.query(
-    "SELECT * FROM logowanie WHERE Id = 31",(errr,resultt) => {
+    "SELECT * FROM logowanie WHERE Id ",(errr,resultt) => {
       result[key] = resultt
     }
   )
