@@ -2,8 +2,12 @@ import '../App.css';
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import StronaGlowna from './StronaGlowna';
+import { Alert } from 'react-bootstrap';
 
-
+const validateEmail = (email) => {
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+};
  function Register() {
 
   
@@ -15,6 +19,7 @@ import StronaGlowna from './StronaGlowna';
   const [nazwiskoREG, setnazwiskoREG] = useState("");
   const [mailREG, setmailREG] = useState("");
   const [telefonREG, settelefonREG] = useState("");
+  const [powtorzhasloREG, setpowtorzhasloREG] = useState("");
 
   const [login, setloginLOG] = useState("");
   const [haslo, sethasloLOG] = useState("");
@@ -29,13 +34,35 @@ import StronaGlowna from './StronaGlowna';
     setToggleState(index);
   };
 
- 
+  
 
 
   Axios.defaults.withCredentials = true;
 
   const zarejestruj = () => {
-    window.location.reload();
+   console.log (mailREG)
+if (loginREG == "" || hasloREG == "") {
+  alert("Wypełnij wszystkie pola !")
+  
+}
+else {
+   
+  if (hasloREG != powtorzhasloREG ) {
+    alert("Hasła nie są takie same !")
+  }
+  else{
+    if (!validateEmail(mailREG)){
+      alert ("E-mail jest nieprawidłowy !")
+    }
+    else{
+  if (hasloREG.length <6) {
+    alert ("Hasło jest zbyt krótkie !")
+  }
+  else{
+
+  
+    
+
     Axios.post("http://localhost:3001/api/insert", {
       login: loginREG,
       haslo: hasloREG,
@@ -46,6 +73,7 @@ import StronaGlowna from './StronaGlowna';
     }).then(()=> {
       alert("succesful insert");
     });
+  }}}}
   };
 
   const zaloguj = () => {
@@ -139,7 +167,7 @@ import StronaGlowna from './StronaGlowna';
        <input 
       type="text" 
       name="imie" 
-      placeholder="Imie ..." 
+      placeholder="Imię ..." 
       onChange={(e)=> {
       setimieREG(e.target.value);
       }}/>
@@ -153,7 +181,7 @@ import StronaGlowna from './StronaGlowna';
        <input 
       type="text" 
       name="mail" 
-      placeholder="Mail ..." 
+      placeholder="E-mail ..." 
       onChange={(e)=> {
       setmailREG(e.target.value);
       }}/>
@@ -175,7 +203,10 @@ import StronaGlowna from './StronaGlowna';
       <input 
       type="password" 
       name="password2"  
-      placeholder="Powtórz hasło ..."   />
+      placeholder="Powtórz hasło ..."  
+      onChange={(e)=> {
+        setpowtorzhasloREG(e.target.value);
+        }} />
 
       <h6>Jeśli masz już konto, zaloguj się.</h6>
       

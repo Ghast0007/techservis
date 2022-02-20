@@ -80,7 +80,7 @@ app.post("/api/insert", (req, res) => {
    
   
       db.query(
-        "INSERT INTO zamowienia (opis, url, kategoria, user_id) VALUES (?, ?, ?, ?)",
+        "INSERT INTO zamowienia (opis, url, kategoria, user_id, czy_zrealizowane) VALUES (?, ?, ?, ?, 0)",
         [opis, url, kategoria, user_id],
         (err, result) => {
           console.log(err);
@@ -152,6 +152,32 @@ result.forEach((key, {user_id})=> {
     }
   )
 })
+
+
+app.post("/api/zmien_status", (req, res) => {
+
+  const id_zamowienia = req.body.id_zamowienia;
+
+  db.query(
+    "UPDATE zamowienia SET czy_zrealizowane = 1 WHERE id_zamowienia =  " + id_zamowienia,
+    (err, result) => {
+      console.log(err);
+    }
+  )
+})
+
+app.post("/api/usun_zamowienie", (req, res) => {
+
+  const id_zamowienia = req.body.id_zamowienia;
+
+  db.query(
+    "DELETE FROM zamowienia WHERE id_zamowienia =  " + id_zamowienia,
+    (err, result) => {
+      console.log(err);
+    }
+  )
+})
+
 
 app.get("/logout", function(req, res) {
   req.session.destroy(() => {
