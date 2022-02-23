@@ -61,10 +61,10 @@ import "../App.css";
     <h3>opis: {opis}</h3>
     <h3>url: {url}</h3>
     <h3>kategoria: {kategoria}</h3>
-    <h3>czy_zrealizowane: {czy_zrealizowane == 1 ? (<p>Zrealizowano</p>) : (<p>Nie zrealizowano</p>)}</h3>
+    <h3>czy_zrealizowane: {czy_zrealizowane == 1 ? (<p id="c" >Zrealizowano</p>) : (<p id="d" >Nie zrealizowano</p>)}</h3>
 
-   <button onClick={() => handlezrealizowano(id_zamowienia)}>Zrealizowano</button>
-   <button onClick={() => handleusun(id_zamowienia)}>Usuń zamówienie</button>
+   <button id ="a" onClick={() => handlezrealizowano(id_zamowienia)}>Zrealizuj</button>
+   <button id ="b" onClick={() => handleusun(id_zamowienia)}>Usuń zamówienie</button>
   </div>
 
 </div>

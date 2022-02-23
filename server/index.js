@@ -179,10 +179,32 @@ app.post("/api/usun_zamowienie", (req, res) => {
 })
 
 
+app.get("/api/status", (req, res) => {
+
+  db.query(
+    "SELECT * FROM zamowienia ",(err,result) => {
+      if (err){
+        res.send({err: err});
+    }
+    else{
+
+      result.forEach((key, {user_id})=> {
+        db.query(
+          "SELECT * FROM logowanie WHERE id_zamowienia ",(errr,resultt) => {
+            result[key] = resultt
+          }
+        )
+      })
+
+      res.send(result)
+    }
+    }
+  )
+})
+
 app.get("/logout", function(req, res) {
   req.session.destroy(() => {
-  // req.logout();
-  // res.redirect("/"); //Inside a callback… bulletproof!
+  
   });
  });
 

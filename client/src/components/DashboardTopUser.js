@@ -46,6 +46,7 @@ function DashboardTop() {
        <div className="rightside2">
         
        <Button id="wyloguj" size="small" href="/wyloguj">Wyloguj</Button>
+       <Button id="status" size="small" href="/status">Satus zamówień</Button>
      
        </div>
        
