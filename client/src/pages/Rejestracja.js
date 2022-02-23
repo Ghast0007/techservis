@@ -1,8 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import StronaGlowna from './StronaGlowna';
-import { Alert } from 'react-bootstrap';
+
 
 const validateEmail = (email) => {
   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -41,7 +40,7 @@ const validateEmail = (email) => {
 
   const zarejestruj = () => {
    console.log (mailREG)
-if (loginREG == "" || hasloREG == "") {
+if (loginREG == "" || hasloREG == "" || imieREG=="" || nazwiskoREG=="" || telefonREG=="") {
   alert("Wypełnij wszystkie pola !")
   
 }
