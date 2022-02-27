@@ -145,7 +145,7 @@ result.forEach((key, {user_id})=> {
     }
   )
 })
-     
+
     
       res.send(result)
     }
@@ -154,17 +154,7 @@ result.forEach((key, {user_id})=> {
 })
 
 
-app.post("/api/zmien_status", (req, res) => {
 
-  const id_zamowienia = req.body.id_zamowienia;
-
-  db.query(
-    "UPDATE zamowienia SET czy_zrealizowane = 1 WHERE id_zamowienia =  " + id_zamowienia,
-    (err, result) => {
-      console.log(err);
-    }
-  )
-})
 
 app.post("/api/usun_zamowienie", (req, res) => {
 
@@ -196,11 +186,17 @@ app.get("/api/status", (req, res) => {
         )
       })
 
+    
+
       res.send(result)
     }
     }
   )
 })
+
+
+
+
 
 app.get("/logout", function(req, res) {
   req.session.destroy(() => {
