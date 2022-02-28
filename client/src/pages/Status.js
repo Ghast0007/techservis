@@ -6,18 +6,13 @@ import "../App.css";
 
  function Status() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({Id: 31});
   const [listazamowien, setListaZamowien] = useState([]);
   
 
  
  
-  useEffect(() => {
-    Axios.get("http://localhost:3001/api/status").then((response) => {
-      setListaZamowien(response.data);
-      console.log(response.data)
-    });
-  }, []);
+  
 
   Axios.defaults.withCredentials = true;
   useEffect(() => {
@@ -25,8 +20,17 @@ import "../App.css";
   //   console.log(response.data)
   setUser(response.data.user[0])
     });
+
    
   }, []);
+
+  useEffect(() => {
+    console.log(user)
+    Axios.post("http://localhost:3001/api/status", {user_id: user.Id}).then((response) => {
+      setListaZamowien(response.data);
+      console.log(response.data)
+    });
+  }, [user]);
 
     return (
     <div className="zamowienia">

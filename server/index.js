@@ -116,8 +116,9 @@ app.post("/api/login", (req, res) => {
               bcrypt.compare(haslo, result[0].haslo, (error, response) =>{
                 if (response) {
                   req.session.user = result;
-                  console.log(req.session.user);
+               //   console.log(req.session.user);
                   res.send(result);
+                  return;
                 } else {
                   res.send({ message: "Złe hasło lub login" });
                 }
@@ -141,12 +142,12 @@ app.get("/api/zamowienia_lista", (req, res) => {
           db.query(
             "SELECT zamowienia.id_zamowienia, zamowienia.user_id, zamowienia.opis, zamowienia.url, zamowienia.kategoria, logowanie.imie, logowanie.nazwisko, logowanie.telefon, logowanie.mail, logowanie.czy_zrealizowane FROM logowanie INNER JOIN zamówienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id = ? ;",
             user_id,
-            (err,result) => {
-              if (err) {
-                res.send({err: err});
+            (errr,resultt) => {
+              if (errr) {
+                res.send({err: errr});
               }
               else {
-                result[key] = result
+                result[key] = resultt
               }
             }
           )
@@ -174,24 +175,18 @@ app.post("/api/usun_zamowienie", (req, res) => {
 })
 
 
-app.get("/api/status", (req, res) => {
+app.post("/api/status", (req, res) => {
+  const user_id = req.body.user_id;
 
   db.query(
-    "SELECT * FROM zamowienia ",(err,result) => {
+    "SELECT * FROM zamowienia WHERE user_id = ? ",
+    user_id,
+    (err,result) => {
       if (err){
         res.send({err: err});
     }
     else{
 
-      result.forEach((key, {user_id})=> {
-        db.query(
-          "SELECT * FROM logowanie WHERE id_zamowienia ",(errr,resultt) => {
-            result[key] = resultt
-          }
-        )
-      })
-
-    
 
       res.send(result)
     }

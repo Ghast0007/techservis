@@ -11,10 +11,12 @@ import Axios from "axios";
   
     return (
 
+      
+
     <div className="zamowpage">
          <div className="formularz">
              <div className="formularz_odstep">
-        <form action="mailto:ghast0007@gmail.com" method="get" enctype="text/plain">
+        <form action="mailto:ghast0007@gmail.com" method="post" enctype="text/plain">
       <div className="imie">
         <label for="name" >
           <input type="text" name="name" id="name" placeholder="Imie ..." />
