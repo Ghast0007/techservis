@@ -135,20 +135,25 @@ app.get("/api/zamowienia_lista", (req, res) => {
     "SELECT * FROM zamowienia",(err,result) => {
       if (err){
         res.send({err: err});
-    }
-    else{
+      }
+      else {
+        result.forEach((key, {user_id})=> {
+          db.query(
+            "SELECT zamowienia.id_zamowienia, zamowienia.user_id, zamowienia.opis, zamowienia.url, zamowienia.kategoria, logowanie.imie, logowanie.nazwisko, logowanie.telefon, logowanie.mail, logowanie.czy_zrealizowane FROM logowanie INNER JOIN zamówienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id = ? ;",
+            user_id,
+            (err,result) => {
+              if (err) {
+                res.send({err: err});
+              }
+              else {
+                result[key] = result
+              }
+            }
+          )
+        })
 
-result.forEach((key, {user_id})=> {
-  db.query(
-    "SELECT * FROM logowanie WHERE Id ",(errr,resultt) => {
-      result[key] = resultt
-    }
-  )
-})
-
-    
-      res.send(result)
-    }
+        res.send(result)
+      }
     }
   )
 })
