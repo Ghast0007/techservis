@@ -43,19 +43,12 @@ function App() {
   return ( 
   <div className ="App">
 
-   
-
    {role === "admin" && <DashboardTopAdmin />}
    {role === "admin" && <DashboardAdmin/>}
    {role === "user" && <DashboardTopUser />}
    {role === "user" && <Dashboard />}
    {role === "" && <DashboardTop />}
    {role === "" && <DashboardNiezalogowany />}
-   
-   
-   
-   
-
    
     <Routes>   
 
@@ -74,10 +67,8 @@ function App() {
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
           {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow/zamowione"  element={<Zamowione />}/>}
-          
           {role === "user" &&  <Route path="/uslugi/zamow/zapytane"  element={<Zapytane />}/>}
           
-     
     </Routes>
     <Footer/>
     </div>

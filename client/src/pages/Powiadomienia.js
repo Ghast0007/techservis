@@ -53,11 +53,12 @@ import "../App.css";
         <div className="zamowienia2">
         <h1>Witaj {user.login}</h1>
       <div className="wyswietl1">
-      {listazamowien.map(({opis, url, kategoria, id_zamowienia, user_id, czy_zrealizowane}) => (
+      {listazamowien.map(({opis, url, kategoria, id_zamowienia, user_id, czy_zrealizowane }) => (
 
 <div className="wyswietl2">
   <div>
     <h3>user_id: {user_id}</h3>
+    
     <h3>opis: {opis}</h3>
     <h3>url: {url}</h3>
     <h3>kategoria: {kategoria}</h3>
