@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-
+import Usługi from "./Uslugi.js";
 
 const validateEmail = (email) => {
   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -71,7 +71,9 @@ else {
       telefon: telefonREG,
     }).then(()=> {
       alert("succesful insert");
+     
     });
+    window.location.reload();
   }}}}
   };
 
@@ -83,11 +85,12 @@ else {
     }).then((response)=> {
       if (response.data.message) {
         setloginStatus(response.data.message);
+        
       }else
       {
         setloginStatus(response.data[0].login);
         window.location.reload();
-         
+       
       }
      
     });
@@ -185,8 +188,8 @@ else {
       setmailREG(e.target.value);
       }}/>
        <input 
-      type="text" 
-      name="telefon" 
+      type="tel" 
+      name="phone" 
       placeholder="Telefon ..." 
       onChange={(e)=> {
       settelefonREG(e.target.value);

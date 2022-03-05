@@ -25,7 +25,7 @@ function DashboardTop() {
        <div className="leftside">
        
        < RingVolumeIcon />   Skontaktuj się z nami:
-           <a href="/kontakt">  +48 506 527 441  </a>
+       <a href="tel:506-527-4410p123">  +48 506 527 441  </a>
           
         
 

@@ -130,34 +130,6 @@ app.post("/api/login", (req, res) => {
     );
 });
 
-app.get("/api/zamowienia_lista", (req, res) => {
-
-  db.query(
-    "SELECT * FROM zamowienia",(err,result) => {
-      if (err){
-        res.send({err: err});
-      }
-      else {
-        result.forEach((key, {user_id})=> {
-          db.query(
-            "SELECT zamowienia.id_zamowienia, zamowienia.user_id, zamowienia.opis, zamowienia.url, zamowienia.kategoria, logowanie.imie, logowanie.nazwisko, logowanie.telefon, logowanie.mail, logowanie.czy_zrealizowane FROM logowanie INNER JOIN zamówienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id = ? ;",
-            user_id,
-            (errr,resultt) => {
-              if (errr) {
-                res.send({err: errr});
-              }
-              else {
-                result[key] = resultt
-              }
-            }
-          )
-        })
-
-        res.send(result)
-      }
-    }
-  )
-})
 
 
 
@@ -175,25 +147,57 @@ app.post("/api/usun_zamowienie", (req, res) => {
 })
 
 
-app.post("/api/status", (req, res) => {
-  const user_id = req.body.user_id;
+app.post("/api/zmien_status", (req, res) => {
 
+  const id_zamowienia = req.body.id_zamowienia;
+  
   db.query(
-    "SELECT * FROM zamowienia WHERE user_id = ? ",
-    user_id,
-    (err,result) => {
-      if (err){
-        res.send({err: err});
-    }
-    else{
-
-
-      res.send(result)
-    }
-    }
+  "UPDATE zamowienia SET czy_zrealizowane = 1 WHERE id_zamowienia = " + id_zamowienia,
+  (err, result) => {
+  
+  console.log(err);
+  }
   )
-})
+  })
 
+
+  app.post("/api/czy_zaplacone", (req, res) => {
+
+    const id_zamowienia = req.body.id_zamowienia;
+    
+    db.query(
+    "UPDATE zamowienia SET czy_zaplacone = 1 WHERE id_zamowienia = " + id_zamowienia,
+    (err, result) => {
+    
+    console.log(err);
+    }
+    )
+    })
+
+app.get("/api/status", (req, res) => {
+  const user_id = req.body.user_id;
+  
+  
+  
+  db.query(
+    "SELECT * FROM logowanie INNER JOIN zamowienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id",
+    (err,result) => {
+    if (err) {
+    res.send({err: err});
+    }
+    else {
+    result.forEach((key)=> {
+    result[key] = result;
+  })
+  
+  
+  
+  res.send(result);
+  console.log(user_id);
+      }
+    }
+  );
+  });
 
 
 

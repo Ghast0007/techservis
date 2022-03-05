@@ -24,6 +24,7 @@ import Zamowione from "./pages/zamowienie_zlozone";
 import Zapytane from "./pages/zapytane";
 import Zapytaj from "./pages/zapytaj";
 import Status from "./pages/Status";
+import Zalogowano from "./pages/zalogowano";
 
 function App() {
 
@@ -57,12 +58,14 @@ function App() {
           <Route path="/" element={<StronaGlowna />}/> 
           <Route path="/wyloguj" element={<Wyloguj />}/>  
           {role === "user" && <Route path="/kontakt" element={<Kontakt />}/> }
-          <Route path="/register" element={<Rejestracja/>}/> 
+          {role === "" && <Route path="/register" element={<Rejestracja/>}/> }
+          {role === "admin" &&  <Route path="/register"  element={<Zalogowano />}/>}
           <Route path="/ofirmie" element={<OFirmie />}/> 
           <Route path="/cennik" element={<Cennik />}/>
           {role === "" &&  <Route path="/uslugi" element={<UsługiNiezalogowany />}/> }
           {role === "" &&  <Route path="/kontakt" element={<KontaktNiezalogowany />}/> }
           {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
+          {role === "user" &&  <Route path="/register"  element={<Zalogowano />}/>}
           {role === "user" &&  <Route path="/status"  element={<Status />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}
           {role === "user" &&  <Route path="/uslugi/zapytaj"  element={<Zapytaj />}/>}

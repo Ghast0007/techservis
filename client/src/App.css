@@ -121,6 +121,23 @@ body {
   border-radius: 10px;
   
 }
+
+.rightside2 #zaloguj
+{
+  color: #ffffff;
+  font-size: 15px;
+  background-color: #1a9d00;
+  margin-right: 0px;
+  margin-left: 180px;
+  text-align: center;
+  line-height: 20px;
+  height: 80%;
+  width: 40%;
+  margin-top: 1.5%;
+  border-radius: 10px;
+  
+}
+
 .rightside2 #status
 {
   color: #ffffff;
@@ -424,6 +441,30 @@ body {
     display: flex;
     height: 600px;
     flex-direction: column;
+}
+
+.form2{
+  margin-right: 35%;
+  margin-top: 100px;
+  width: 450px;
+  height: 650px;
+  float: right;
+  background-color: rgba(29, 26, 63, 0.966);
+  box-shadow: 30px 70px 25px rgba(128, 128, 128, 0.658);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.form2 #a
+{
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 30px;
+  color: #459d40;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-variant: unset;
+ 
+  text-align: center;
 }
 
 .uslugi
@@ -851,13 +892,13 @@ body {
   width: 85%;
   height: 100%;
   float: right;
-  
-
 }
 .zamowienia2
 {
   margin-left: 4%;
   margin-top: 4%;
+  height: 100%;
+  
 }
 
 .information {
@@ -921,6 +962,15 @@ input {
   color: #000000;
   font-weight: 600;
   font-size: 20px;
+
+}
+
+.wyswietl2 #e
+{
+  color: #0df700;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #e6ffe9;
 
 }
 

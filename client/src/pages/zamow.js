@@ -110,6 +110,8 @@ import Axios from "axios";
           <p>Kliknij, aby wybrać plik, lub przeciągnij tutaj...</p>
       }
       
+     
+
     </div>
    
         </div>
