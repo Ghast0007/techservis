@@ -20,11 +20,7 @@ export const DashboardData = [
         icon: <InfoIcon />,
         link: "/OFirmie"
     },
-    {
-        title: "Kontakt",
-        icon: <CallIcon />,
-        link: "/Kontakt"
-    },
+   
     {
         title: "Usługi",
         icon: <LocalOfferIcon />,
@@ -39,5 +35,10 @@ export const DashboardData = [
         title: "Zarejestruj/Zaloguj",
         icon: <VpnKeyIcon />,
         link: "/register"
+    },
+    {
+        title: "Kontakt",
+        icon: <CallIcon />,
+        link: "/Kontakt"
     },
 ]

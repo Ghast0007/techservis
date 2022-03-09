@@ -6,11 +6,14 @@ import logo from "../images/logoTS.png";
 function Dashboard() {
     return (
     <div className="Dashboard">
+
         <div>
         <img src={logo} alt="logo"/>
         </div>
+
         <p/>
-        <p/>
+        
+
         <ul className="DashboardList">
         
         {DashboardData.map((val, key)=>{
@@ -23,9 +26,9 @@ function Dashboard() {
                 window.location.pathname = val.link;
                 }}> 
         
-        <div id="icon">{val.icon}</div>{" "}
-        <div id="title">{val.title}</div> 
-        </li>
+            <div id="icon">{val.icon}</div>{" "}
+            <div id="title">{val.title}</div> 
+            </li>
             );
         })}
     </ul>
