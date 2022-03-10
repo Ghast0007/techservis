@@ -11,8 +11,8 @@ import Footer from "./components/footer";
 import Cennik from "./pages/Cennik";
 import DashboardTopAdmin from "./components/DashboardTopAdmin.js";
 import DashboardTopUser from "./components/DashboardTopUser.js";
-import Usługi from "./pages/Uslugi.js";
-import UsługiNiezalogowany from "./pages/UslugiNiezalogowany";
+import Uslugi from "./pages/Uslugi.js";
+import UslugiNiezalogowany from "./pages/UslugiNiezalogowany";
 import DashboardNiezalogowany from "./components/DashboardNiezalogowany";
 import DashboardAdmin from "./components/DashboardAdmin";
 import Powiadomienia from "./pages/Powiadomienia";
@@ -62,9 +62,9 @@ function App() {
           {role === "admin" &&  <Route path="/register"  element={<Zalogowano />}/>}
           <Route path="/ofirmie" element={<OFirmie />}/> 
           <Route path="/cennik" element={<Cennik />}/>
-          {role === "" &&  <Route path="/uslugi" element={<UsługiNiezalogowany />}/> }
+          {role === "" &&  <Route path="/uslugi" element={<UslugiNiezalogowany />}/> }
           {role === "" &&  <Route path="/kontakt" element={<KontaktNiezalogowany />}/> }
-          {role === "user" &&  <Route path="/uslugi"  element={<Usługi />}/>}
+          {role === "user" &&  <Route path="/uslugi"  element={<Uslugi />}/>}
           {role === "user" &&  <Route path="/register"  element={<Zalogowano />}/>}
           {role === "user" &&  <Route path="/status"  element={<Status />}/>}
           {role === "user" &&  <Route path="/uslugi/zamow"  element={<Zamow />}/>}

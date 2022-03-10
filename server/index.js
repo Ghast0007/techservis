@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
+// const fileUpload = require('express-fileupload');
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require('body-parser');
@@ -15,6 +16,8 @@ const db = mysql.createPool({
     database:"techservisdatabase",
     multipleStatements: true,
 });
+
+// app.use(fileUpload());
 
 app.use(
   cors({

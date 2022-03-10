@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import Usługi from "./Uslugi.js";
+import Uslugi from "./Uslugi.js";
 
 const validateEmail = (email) => {
   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
