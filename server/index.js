@@ -81,7 +81,7 @@ app.post("/api/insert", (req, res) => {
    
   
       db.query(
-        "INSERT INTO zamowienia (opis, url, kategoria, user_id, czy_zrealizowane) VALUES (?, ?, ?, ?, 0)",
+        "INSERT INTO zamowienia (opis, url, kategoria, user_id, czy_zrealizowane, czy_zaplacone) VALUES (?, ?, ?, ?, 0, 0)",
         [opis, url, kategoria, user_id],
         (err, result) => {
           console.log(err);
