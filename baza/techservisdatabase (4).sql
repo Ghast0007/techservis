@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 06 Mar 2022, 20:56
+-- Czas generowania: 10 Mar 2022, 22:15
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.11
 
@@ -54,6 +54,31 @@ INSERT INTO `logowanie` (`Id`, `login`, `haslo`, `rola`, `imie`, `nazwisko`, `ma
 (47, 'Maciek', '$2b$10$I.zkuXfM6kqZpFxf.q9q9ewacA.efURQpMSqhoBJkdCYPEKNPFhdK', 'user', 'Maciek', 'Jakiś', 'maciek@mail.vom', '+48 518 477 006'),
 (48, 'Marcel123', '$2b$10$7qEg2zTeUNsvIS5MgfknJu3I5TQ7XRdsF3H0yEOF/CNpZL2ScUPUi', 'user', 'Marcel', 'Szeluga', 'natalka12042004@wp.pl', '+48 789 254 062');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zamowienia`
+--
+
+CREATE TABLE `zamowienia` (
+  `id_zamowienia` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `opis` text NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `kategoria` varchar(255) NOT NULL,
+  `czy_zrealizowane` int(1) NOT NULL,
+  `czy_zaplacone` int(1) NOT NULL,
+  `data` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `zamowienia`
+--
+
+INSERT INTO `zamowienia` (`id_zamowienia`, `user_id`, `opis`, `url`, `kategoria`, `czy_zrealizowane`, `czy_zaplacone`, `data`) VALUES
+(37, 31, 'Chciałbym wymienić dysk hdd na ssd w laptopie najlepiej na 1TB.', '', 'Laptopy', 1, 1, '2022-03-09 23:11:05'),
+(38, 31, 'Chciałbym wymienić procesor na i5 12600k oraz płytę główną i chłodzenie procesora', '', 'Komputery', 0, 0, '2022-03-09 23:14:02');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -65,6 +90,12 @@ ALTER TABLE `logowanie`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indeksy dla tabeli `zamowienia`
+--
+ALTER TABLE `zamowienia`
+  ADD PRIMARY KEY (`id_zamowienia`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -73,6 +104,12 @@ ALTER TABLE `logowanie`
 --
 ALTER TABLE `logowanie`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT dla tabeli `zamowienia`
+--
+ALTER TABLE `zamowienia`
+  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
