@@ -24,22 +24,28 @@ function Status() {
   }, []);
 
   return (
-    <div className="zamowienia">
-      <div className="zamowienia2">
-        <h1>Witaj {user.login}</h1>
+    <div className="status">
+      <div className="status2">
+        <h1>{user.login} tu sprawdzisz status swoich zamówień</h1>
         <div className="wyswietl1">
           {
             listazamowien
             .filter(zamowienia => zamowienia.user_id === user.Id)
             .map(
-              ({ opis, url, kategoria, id_zamowienia, czy_zrealizowane }) => (
+              ({ opis, url, kategoria, id_zamowienia, czy_zrealizowane, czy_zaplacone, data }) => (
                 <div className="wyswietl2">
-                  <div>
+                  <div className="dane1">
                     <h3>Id zamówienia: {id_zamowienia}</h3>
-                    <h3>opis: {opis}</h3>
+                    
                     <h3>kategoria: {kategoria}</h3>
                     <h3> {czy_zrealizowane == 1 ? (<p id="c" >Zrealizowano</p>) : (<p id="d" >Nie zrealizowano</p>)}</h3>
+                    <h3> {czy_zaplacone == 1 ? (<p id="c" >Zapłacono</p>) : (<p id="d" >Nie zapłacono</p>)}</h3>
+                    <h3 id="data">Data: {data}</h3>
                   </div>
+                  <div className="dane5">
+                    <h3>opis: {opis}</h3> 
+                    </div>
+                  
                 </div>
               )
             )

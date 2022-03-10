@@ -68,20 +68,31 @@ import "../App.css";
         <div className="wyswietl1">
           {
             listazamowien.map(
-              ({opis, url, kategoria, id_zamowienia, user_id, czy_zrealizowane, czy_zaplacone, login, imie, nazwisko, mail, telefon }) => (
+              ({opis, url, kategoria, id_zamowienia, data, user_id, czy_zrealizowane, czy_zaplacone, login, imie, nazwisko, mail, telefon }) => (
                 <div className="wyswietl2">
                   <div>
-                    <h3>user_id: {user_id} </h3>
-                    <h3>login: {login}</h3>
-                    <h3>imie: {imie}</h3>
-                    <h3>nazwisko: {nazwisko}</h3>
-                    <h3>mail: {mail}</h3>
-                    <h3>telefon: {telefon}</h3>
-                    <h3>opis: {opis}</h3>
-                    <h3>url: {url}</h3>
-                    <h3>kategoria: {kategoria}</h3>
-                    <h3>czy_zrealizowane: {czy_zrealizowane == 1 ? (<p id="c" >Zrealizowano</p>) : (<p id="d" >Nie zrealizowano</p>)}</h3>
-                    <h3>czy_zaplacone: {czy_zaplacone == 1 ? (<p id="c" >Zapłacono</p>) : (<p id="d" >Nie zapłacono</p>)}</h3>
+                    <div className="dane1">
+                    <h3>Id użytkownika: {user_id} </h3>
+                    <h3>Imię: {imie}</h3>
+                    <h3>E-mail: {mail}</h3>
+                    </div>
+                    <div className="dane3">
+                    <h3>Czy zrealizowane: {czy_zrealizowane == 1 ? (<p id="c" >Zrealizowano</p>) : (<p id="d" >Nie zrealizowano</p>)}</h3>
+                    <h3>Czy zapłacone: {czy_zaplacone == 1 ? (<p id="c" >Zapłacono</p>) : (<p id="d" >Nie zapłacono</p>)}</h3>
+                    </div>
+                    <div className="dane2">
+                    <h3>Login: {login}</h3>
+                    <h3>Nazwisko: {nazwisko}</h3>
+                    <h3>Telefon: {telefon}</h3>
+                    </div>
+                    <div className="dane4">
+                    <h3>Opis: {opis}</h3>
+                    <h3>Grafika: {url}</h3>
+                    <h3>Kategoria: {kategoria}</h3>
+                    <h3 id="data">Data: {data}  </h3>
+                    </div>
+                   
+                   
                     <button id ="a" onClick={() => handlezrealizowano(id_zamowienia)}>Zrealizuj</button>
                     <button id ="e" onClick={() => handlzaplacono(id_zamowienia)}>Zapłacono</button>
                     <button id ="b" onClick={() => handleusun(id_zamowienia)}>Usuń zamówienie</button>

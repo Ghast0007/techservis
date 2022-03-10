@@ -97,8 +97,13 @@ import Axios from "axios";
         />
       
       </div>
+     
         <div className="wiersz5">
+
+        
           
+      
+
         <div className='dropzone' {...getRootProps()}>
       <input {...getInputProps()} 
       onChange={(e)=> {
@@ -116,7 +121,10 @@ import Axios from "axios";
    
         </div>
        
-       
+        <form method='POST' action='/upload' encType='multipart/form-data'>
+            <input type="file" name='image'></input>
+            <input type="submit"></input>
+            </form>
         <a id='instrukcja2'>* - pola wymagane </a>
        <div className="prawa_zamowienie">
          Po wypełnienu formularza, złóż zamówienie klikając poniższy przycisk...<p/>

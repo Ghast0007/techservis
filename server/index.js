@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const app = express();
+const path = require("path");
 const mysql = require('mysql');
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -180,7 +181,7 @@ app.get("/api/status", (req, res) => {
   
   
   db.query(
-    "SELECT * FROM logowanie INNER JOIN zamowienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id",
+    "SELECT * FROM logowanie INNER JOIN zamowienia ON logowanie.Id = zamowienia.user_id WHERE logowanie.Id Order By data DESC " ,
     (err,result) => {
     if (err) {
     res.send({err: err});
@@ -190,8 +191,6 @@ app.get("/api/status", (req, res) => {
     result[key] = result;
   })
   
-  
-  
   res.send(result);
   console.log(user_id);
       }
@@ -200,7 +199,27 @@ app.get("/api/status", (req, res) => {
   });
 
 
+/* const multer = require("multer")
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "Images")
+  },
+  filename: (req, file, cb) =>{
+    console.log(file)
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+})
 
+app.set("view engine", "ejs");
+
+app.get("/upload", (req, res) => {
+  res.render("upload");
+});
+
+app.post("/upload", upload.single("image"), (req, res) => {
+  res.send("Image Uploaded");
+});
+*/
 
 app.get("/logout", function(req, res) {
   req.session.destroy(() => {

@@ -1,10 +1,7 @@
-
 import "../App.css";
-
 import React  from "react";
+import Mail_send from "../images/mail_send.png"
 
-
-import Axios from "axios";
 
  function Zapytaj() {
 
@@ -15,29 +12,34 @@ import Axios from "axios";
 
     <div className="zamowpage">
          <div className="formularz">
-             <div className="formularz_odstep">
+           
+             <div className="pytanie">
         <form action="mailto:ghast0007@gmail.com" method="post" enctype="text/plain">
-      <div className="imie">
+      
         <label for="name" >
-          <input type="text" name="name" id="name" placeholder="Imie ..." />
+          <input type="text" name="name" id="name" placeholder="Imię ..." />
         </label>
-      </div>
-      <div>
+    
         <label for="email">
-          <input type="text" name="email" id="email" placeholder="E-mail ..." />
+          <input type="text" name="tel" id="email" placeholder="Telefon ..." />
         </label>
-      </div>
-      <div>
-        <label></label>
-        <br />
-        <textarea name="comments" rows="12" cols="35" >Uwagi</textarea>
-      </div>
-      <div>
-        <input type="submit" name="submit" value="Send" />
-        <input type="reset" name="reset" value="Clear Form" />
-      </div>
+     
+        
+        <textarea id ="text" name="comments" rows="12" cols="35" ></textarea>
+    
+     
+        <input id="but1" type="submit" name="submit" value="Wyślij" />
+        <input id="but2" type="reset" name="reset" value="Wyczyść formularz" />
+      
     </form>
     </div>
+    <div className="pytanie2">
+     <div className="text1"> Wyślij nam wiadomość mailem, a my postaramy się na nią odpowiedzieć w jak najkrótszym czasie.
+      </div>
+      <div className="image">
+      <img  alt="1" src={Mail_send} width={450}></img>
+        </div>
+      </div>
     </div>
        
     </div>
