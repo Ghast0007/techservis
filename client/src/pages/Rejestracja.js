@@ -58,7 +58,10 @@ else {
     alert ("Hasło jest zbyt krótkie !")
   }
   else{
-
+    if (telefonREG.length <9) {
+      alert ("Telefon musi składać się z 9 cyfr !")
+    }
+    else{
   
     
 
@@ -74,7 +77,7 @@ else {
      
     });
     window.location.reload();
-  }}}}
+  }}}}}
   };
 
   const zaloguj = () => {

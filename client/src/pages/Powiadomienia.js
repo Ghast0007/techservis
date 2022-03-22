@@ -68,7 +68,7 @@ import "../App.css";
         <div className="wyswietl1">
           {
             listazamowien.map(
-              ({opis, url, kategoria, id_zamowienia, data, user_id, czy_zrealizowane, czy_zaplacone, login, imie, nazwisko, mail, telefon }) => (
+              ({opis, url, kategoria, user_img, id_zamowienia, data, user_id, czy_zrealizowane, czy_zaplacone, login, imie, nazwisko, mail, telefon }) => (
                 <div className="wyswietl2">
                   <div>
                     <div className="dane1">
@@ -87,9 +87,12 @@ import "../App.css";
                     </div>
                     <div className="dane4">
                     <h3>Opis: {opis}</h3>
-                    <h3>Grafika: {url}</h3>
+                    <h3>Grafika: {url} <div className="zdjecie">
+                    <img src={"/images/" + user_img} alt="brak zdjęcia problemu" width={800}/>
+                  </div></h3>
                     <h3>Kategoria: {kategoria}</h3>
                     <h3 id="data">Data: {data}  </h3>
+                    
                     </div>
                    
                    

@@ -32,7 +32,7 @@ function Status() {
             listazamowien
             .filter(zamowienia => zamowienia.user_id === user.Id)
             .map(
-              ({ opis, url, kategoria, id_zamowienia, czy_zrealizowane, czy_zaplacone, data }) => (
+              ({ opis, kategoria, id_zamowienia, czy_zrealizowane, czy_zaplacone, data, user_img }) => (
                 <div className="wyswietl2">
                   <div className="dane1">
                     <h3>Id zamówienia: {id_zamowienia}</h3>
@@ -44,7 +44,11 @@ function Status() {
                   </div>
                   <div className="dane5">
                     <h3>opis: {opis}</h3> 
-                    </div>
+                    <div className="zdjecie">
+                    <img src={"/images/" + user_img} alt="zdjecie problemu" width={600}/>
+                  </div>
+                  </div>
+                 
                   
                 </div>
               )
